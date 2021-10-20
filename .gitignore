@@ -1,4 +1,5 @@
-.class
-.interp
-.tokens
-./.antlr
+*.class
+*.interp
+*.tokens
+.antlr/
+

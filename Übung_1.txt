@@ -1,0 +1,35 @@
+Java
+- hierarchische Gliederung: extends, interface, abstract class,
+- Abstraktion: interface, abstract class, abstract methods
+- Redundanz: Vererbung, Streams/Lambda
+- Abhängigkeit: packages, import, Compiler checkt Abhängigkeit
+
+Python
+- hierarchische Gliederung: class A(C), 
+- Abstraktion: abstract methods
+- Redundanz: map/flat functions
+- Abhängigkeit: from, import, packages (pip)
+
+C
+- hierarchische Gliederung: struct
+- Abstraktion: function pointers
+- Redundanz: 
+- Abhängigkeit: header Dateien, include
+
+Javascript
+- hierarchische Gliederung: Module
+- Abstraktion: 
+- Redundanz
+- Abhängigkeit: Frameworks, npm
+
+Dart
+- hierarchische Gliederung: 
+- Abstraktion
+- Redundanz
+- Abhängigkeit
+
+Typescript
+Assembler
+HTML/CSS
+Scala
+SQL 
