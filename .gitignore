@@ -1,5 +1,6 @@
 *.class
 *.interp
 *.tokens
+*.zip
 .antlr/
 
