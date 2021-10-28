@@ -3,16 +3,21 @@ Lucian : 10/1/0 - [Galeforce, Phantom Dancer] vs. Ziggs : 1/10/0 - [Luden's Echo
 Aatrox
 Ahri
 Akali
+Akshan
 Alistar
 Amumu
 Anivia
 Annie
+Aphelios
 Ashe
+Aurelion Sol
 Azir
+Bard
 Blitzcrank
 Brand
 Braum
 Caitlyn
+Camille
 Cassiopeia
 Cho'Gath
 Corki
@@ -20,6 +25,7 @@ Darius
 Diana
 Dr. Mundo
 Draven
+Ekko
 Elise
 Evelynn
 Ezreal
@@ -32,26 +38,35 @@ Garen
 Gnar
 Gragas
 Graves
+Gwen
 Hecarim
 Heimerdinger
+Illaoi
 Irelia
+Ivern
 Janna
 Jarvan IV
 Jax
 Jayce
+Jhin
 Jinx
+Kai'sa
 Kalista
 Karma
 Karthus
 Kassadin
 Katarina
 Kayle
+Kayn
 Kennen
 Kha'Zix
+Kindred
+Kled
 Kog'Maw
 LeBlanc
 Lee Sin
 Leona
+Lillia
 Lissandra
 Lucian
 Lulu
@@ -66,22 +81,32 @@ Morgana
 Nami
 Nasus
 Nautilus
+Neeko
 Nidalee
 Nocturne
-Nunu
+Nunu & Willump
 Olaf
 Orianna
+Ornn
 Pantheon
 Poppy
+Pyke
+Qiyana
 Quinn
+Rakan
 Rammus
 Rek'Sai
+Rell
 Renekton
 Rengar
 Riven
 Rumble
 Ryze
+Samira
 Sejuani
+Senna
+Seraphine
+Sett
 Shaco
 Shen
 Shyvana
@@ -92,7 +117,10 @@ Skarner
 Sona
 Soraka
 Swain
+Sylas
 Syndra
+Tahm Kench
+Taliyah
 Talon
 Taric
 Teemo
@@ -108,18 +136,260 @@ Varus
 Vayne
 Veigar
 Vel'Koz
+Vex
 Vi
+Viego
 Viktor
 Vladimir
 Volibear
 Warwick
 Wukong
+Xayah
 Xerath
 Xin Zhao
 Yasuo
+Yone
+Yuumi
 Yorick
 Zac
 Zed
 Ziggs
 Zilean
+Zoe
 Zyra
+
+Mythics:
+
+Bloodward
+Ceaseless Hunger
+Deicide
+Divine Sunderer
+Draktharr's Shadowcarver
+Dreamshatter
+Duskblade of Drakkthar
+Eclipse
+Eternal Winter
+Everfrost
+Eye of Luden
+Forgefire Crest
+Frostfire Gauntlet
+Galeforce
+Goredrinker
+Hextech Rocketbelt
+Icathia's Curse
+Immortal Shieldbow
+Imperial Mandate
+Infinity Force
+Kraken Slayer
+Liandry's Anguish
+Liandry's Lament
+Locket of the Iron Solari
+Luden's Tempest
+Moonstone Renewer
+Night Harvester
+Prowler's Claw
+Reliquary of the Golden Dawn
+Rimeforged Grasp
+Riftmaker
+Sandshrike's Claw
+Seat of Command
+Shurelya's Battlesong
+Shurelya's Requiem
+Starcaster
+Stridebreaker
+Sunfire Aegis
+Syzygz
+Trinity Force
+Turbo Chemtank
+Turbocharged Hexperiment
+Typhoon
+Upgraded Aeropack
+Vespertide
+Wyrmfallen Sacrifice
+
+normale Items:
+
+Abyssal Mask
+Aegis of the Legion
+Aether Wisp
+Amplifying Tome
+Anathema's Chains
+Archangel's Staff
+Ardent Censer
+B. F. Sword
+Bami's Cinder
+Bandleglass Mirror
+Banshee's Veil
+Berserker's Greaves
+Black Cleaver
+Black Mist Scythe
+Blade of the Ruined King
+Blasting Wand
+Blighting Jewel
+Bloodthirster
+Boots
+Boots of Swiftness
+Bramble West
+Broken Stopwatch
+Bulwark of the Mountain
+Caulfield's Warhammer
+Chain Vest
+Chempunk Chainsword
+Chemtech Purifier
+Cloak of Agility
+Cloth Armor
+Commencing Stopwatch
+Cosmic Drive
+Crytalline Bracer
+Dagger
+Dead Man's Plate
+Death's Dance
+Demonic Embrace
+Doran's Blade
+Doran's Ring
+Doran's Shield
+Edge of Night
+Elixir of Iron
+Elixir of Sorcery
+Elixir of Wrath
+Essence Reaver
+Executioner's Calling
+Faerie Charm
+Fiendish Codex
+Forbidden Idol
+Force of Nature
+Frozen Heart
+Gargoyle Stoneplate
+Giant's Belt
+Glacial Buckler
+Guardian Angel
+Guardian's Blade
+Guardian's Hammer
+Guardian's Horn
+Guardian's Orb
+Guinsoo's Rageblade
+Hearthbound Axe
+Hexdrinker
+Hextech Alternator
+Horizon Focus
+Hullbreaker
+Infinity Edge
+Ionian Boot's of Lucidity
+Ironspike Whip
+Kindlegem
+Kircheis Shadowcarver
+Knight's Vow
+Last Whisper
+Leeching Leer
+Lich Bane
+Long Sword
+Lord Dominik's Regards
+Lost Chapter
+Maw of Malmortius
+Mercurial Scimitar
+Mercury's Treads
+Mikael's Blessing
+Mobility Boots
+Morellonomicon
+Mortal Reminder
+Muramana
+Nashor's Tooth
+Navori Quickblades
+Needlessly Large Rod
+Negatron Cloak
+Noonquiver
+Null-Magic Mantle
+Oblivion Orb
+Phage
+Phantom Dancer
+Pickaxe
+Plated Steelcaps
+Quicksilver Sash
+Rabadon's Deathcap
+Rageknife
+Randuin's Omen
+Rapid Firecannon
+Ravenous Hydra
+Recurve Bow
+Redemption
+Rejuvenation Bead
+Relic Shield
+Ruby Crystal
+Runaan's Hurricane
+Rylai's Crystal Scepter
+Sapphire Crystal
+Seeker's Armguard
+Seraph's Embrace
+Serpent's Fang
+Serrated Dirk
+Serylda's Grudge
+Sheen
+Silvermere Dawn
+Sorcerer's Shoes
+Spectral Sickle
+Spectre's Cowl
+Spellthief's Edge
+Spirit Visage
+Staff of Flowing Water
+Steel Shoulderguards
+Sterak's Gage
+Stopwatch
+Stormrazor
+The Collector
+Thornmail
+Tiamat
+Titanic Hydra
+Umbral Glaive
+Vampiric Scepter
+Verdant Barrier
+Void Staff
+Warden's Mail
+Warmog's Armor
+Winged Moonplate
+Wit's End
+Youmuu's Ghostblade
+Zeal
+Zeke's Convergence
+Zhonya's Hourglass
+
+
+Unique Items:
+
+Black Spear (Kalista)
+Death's Daugther, Fire At Will, Raise Morale (GP)
+Scarecrow Effigy (Fiddlesticks + Trinket)
+Slightly Magical Boots (nach 12 Minuten + 45 Sekunden Abzug pro Takedown (Kill oder Assist))
+Your Cut (Pyke)
+
+
+Items mit Charges oder Stacks:
+
+Control Ward
+Corrupting Potion
+Dark Seal
+Emberknife
+Frostfang
+Hailblade
+Harrowing Crescent
+Health Potion
+Manamune
+Mejai's Soulstealer
+Minion Dematerializer
+Pauldrons of Whiterock
+Refillable Potion
+Runesteel Spaulders
+Shard of True Ice
+Targon's Buckler
+Tear of the Goddess
+Total Biscuit of Everlasting Will
+Vigilant Wardstone
+Watchful Wardstone
+
+
+Trinkets:
+
+Eye of the Herald
+Farsight Alteration
+Oracle Lens
+Poro-Snax
+Stealth Ward
