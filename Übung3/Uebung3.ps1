@@ -18,7 +18,7 @@ function buildGui {
     try {
         java -jar antlr-4.9.2-complete.jar .\SaschParser.g4
         javac -classpath .\antlr-4.9.2-complete.jar .\SaschParser.java
-        java -cp "antlr-4.9.2-complete.jar.;" org.antlr.v4.gui.TestRig SaschParser matchup -gui $file
+        java -cp "antlr-4.9.2-complete.jar.;" org.antlr.v4.gui.TestRig SaschParser -gui $file
     }
     catch {
         Write-Error "Something went wrong"
