@@ -1,22 +1,22 @@
 lexer grammar Sasch;
 
-Sasch: Champion ' : ' Score ' - ' '['Items']' ' vs. ' Champion ' : ' Score ' - ' '['Items']';
+//Sasch: Champion ' : ' Score ' - ' '['Items']' ' vs. ' Champion ' : ' Score ' - ' '['Items']';
 
-fragment VS: ' vs ' ;
+VS: ' vs. ' ;
 
-fragment DIVIDER: ' - ' ;
+DIVIDER: ' - ' ;
 
-fragment BRACKETOPEN: '[' ;
+BRACKETOPEN: '[' ;
 
-fragment BRACKETCLOSE: '[' ; 
+BRACKETCLOSE: ']' ; 
 
-fragment COLON: ' : ' ; 
+COLON: ' : ' ; 
 
-fragment SLASH: '/' ; 
+SLASH: '/' ; 
 
-fragment COMMA: ', ' ; 
+COMMA: ', ' ; 
 
-fragment Champion:  'Aatrox' |
+Champion:  'Aatrox' |
                     'Ahri' |
                     'Akali' |
                     'Akshan' |
@@ -174,17 +174,19 @@ fragment Champion:  'Aatrox' |
                     'Zoe' |
                     'Zyra' ;
 
-fragment Score: Kills'/'Deaths'/'Assists ;
+Score: Kills'/'Deaths'/'Assists ;
 
-fragment Kills: [0-9]?[0-9] ;
+Kills: [0-9]?[0-9] ;
 
-fragment Deaths: [0-9]?[0-9] ;
+Deaths: [0-9]?[0-9] ;
 
-fragment Assists: [0-9]?[0-9] ;
+Assists: [0-9]?[0-9] ;
 
-fragment Items: Mythics ', ' Normal | Mythics | Normal | Unique ;
+Items: Mythics | Mythics COMMA OtherItems ;
 
-fragment Mythics:   'Bloodward' |
+OtherItems: (Normal | Unique) | (Normal | Unique) COMMA OtherItems; 
+
+Mythics:   'Bloodward' |
                     'Ceaseless Hunger' |
                     'Deicide' |
                     'Divine Sunderer' |
@@ -232,7 +234,7 @@ fragment Mythics:   'Bloodward' |
                     'Vespertide' |
                     'Wyrmfallen Sacrifice' ;
 
-fragment Normal:    'Abyssal Mask' |
+Normal:    'Abyssal Mask' |
                     'Aegis of the Legion' |
                     'Aether Wisp' |
                     'Amplifying Tome' |
@@ -375,7 +377,7 @@ fragment Normal:    'Abyssal Mask' |
                     'Zeke\'s Convergence' |
                     'Zhonya\'s Hourglass'  ;
 
-fragment Unique:    'Black Spear' |
+Unique:    'Black Spear' |
                     'Death\'s Daugther' | 'Fire At Will' | 'Raise Morale' |
                     'Scarecrow Effigy' | 
                     'Slightly Magical Boots' |

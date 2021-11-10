@@ -1,3 +1,2 @@
-Aatrox : 10/1/0 - [Divine Sunderer] vs. Ahri : 1/10/0 - [Ceaseless Hunger]
-Lucian : 10/1/0 - [Galeforce, Phantom Dancer] vs. Ziggs : 1/10/0 - [Luden's Echo, Rabadon's Deathcap]
+Lucian : 10/1/0 - [Galeforce, Phantom Dancer, Phantom Dancer] vs. Ziggs : 1/10/0 - [Luden's Echo, Rabadon's Deathcap]
 

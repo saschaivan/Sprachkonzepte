@@ -3,4 +3,5 @@
 *.tokens
 *.zip
 .antlr/
+convert.ps1
 
