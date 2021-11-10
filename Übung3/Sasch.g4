@@ -2,6 +2,20 @@ lexer grammar Sasch;
 
 Sasch: Champion ' : ' Score ' - ' '['Items']' ' vs. ' Champion ' : ' Score ' - ' '['Items']';
 
+fragment VS: ' vs ' ;
+
+fragment DIVIDER: ' - ' ;
+
+fragment BRACKETOPEN: '[' ;
+
+fragment BRACKETCLOSE: '[' ; 
+
+fragment COLON: ' : ' ; 
+
+fragment SLASH: '/' ; 
+
+fragment COMMA: ', ' ; 
+
 fragment Champion:  'Aatrox' |
                     'Ahri' |
                     'Akali' |
@@ -160,7 +174,13 @@ fragment Champion:  'Aatrox' |
                     'Zoe' |
                     'Zyra' ;
 
-fragment Score: [0-9]?[0-9]'/'[0-9]?[0-9]'/'[0-9]?[0-9] ;
+fragment Score: Kills'/'Deaths'/'Assists ;
+
+fragment Kills: [0-9]?[0-9] ;
+
+fragment Deaths: [0-9]?[0-9] ;
+
+fragment Assists: [0-9]?[0-9] ;
 
 fragment Items: Mythics ', ' Normal | Mythics | Normal | Unique ;
 
@@ -187,6 +207,7 @@ fragment Mythics:   'Bloodward' |
                     'Kraken Slayer' |
                     'Liandry\'s Anguish' |
                     'Liandry\'s Lament' |
+                    'Luden\'s Echo' |
                     'Locket of the Iron Solari' |
                     'Luden\'s Tempest' |
                     'Moonstone Renewer' |
