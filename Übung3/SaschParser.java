@@ -20,10 +20,10 @@ public class SaschParser extends Parser {
 		Champion=8, Score=9, Kills=10, Deaths=11, Assists=12, Items=13, OtherItems=14, 
 		Mythics=15, Normal=16, Unique=17, WS=18;
 	public static final int
-		RULE_matchup = 0, RULE_side = 1, RULE_score = 2, RULE_items = 3;
+		RULE_matchup = 0, RULE_side = 1, RULE_champion = 2, RULE_score = 3, RULE_items = 4;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"matchup", "side", "score", "items"
+			"matchup", "side", "champion", "score", "items"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -120,11 +120,11 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(8);
-			side();
-			setState(9);
-			match(VS);
 			setState(10);
+			side();
+			setState(11);
+			match(VS);
+			setState(12);
 			side();
 			}
 		}
@@ -140,7 +140,9 @@ public class SaschParser extends Parser {
 	}
 
 	public static class SideContext extends ParserRuleContext {
-		public TerminalNode Champion() { return getToken(SaschParser.Champion, 0); }
+		public ChampionContext champion() {
+			return getRuleContext(ChampionContext.class,0);
+		}
 		public TerminalNode COLON() { return getToken(SaschParser.COLON, 0); }
 		public ScoreContext score() {
 			return getRuleContext(ScoreContext.class,0);
@@ -171,19 +173,19 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(12);
-			match(Champion);
-			setState(13);
-			match(COLON);
 			setState(14);
-			score();
+			champion();
 			setState(15);
-			match(DIVIDER);
+			match(COLON);
 			setState(16);
-			match(BRACKETOPEN);
+			score();
 			setState(17);
-			items();
+			match(DIVIDER);
 			setState(18);
+			match(BRACKETOPEN);
+			setState(19);
+			items();
+			setState(20);
 			match(BRACKETCLOSE);
 			}
 		}
@@ -198,14 +200,45 @@ public class SaschParser extends Parser {
 		return _localctx;
 	}
 
-	public static class ScoreContext extends ParserRuleContext {
-		public TerminalNode Kills() { return getToken(SaschParser.Kills, 0); }
-		public List<TerminalNode> SLASH() { return getTokens(SaschParser.SLASH); }
-		public TerminalNode SLASH(int i) {
-			return getToken(SaschParser.SLASH, i);
+	public static class ChampionContext extends ParserRuleContext {
+		public TerminalNode Champion() { return getToken(SaschParser.Champion, 0); }
+		public ChampionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
 		}
-		public TerminalNode Deaths() { return getToken(SaschParser.Deaths, 0); }
-		public TerminalNode Assists() { return getToken(SaschParser.Assists, 0); }
+		@Override public int getRuleIndex() { return RULE_champion; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterChampion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitChampion(this);
+		}
+	}
+
+	public final ChampionContext champion() throws RecognitionException {
+		ChampionContext _localctx = new ChampionContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_champion);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(22);
+			match(Champion);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ScoreContext extends ParserRuleContext {
+		public TerminalNode Score() { return getToken(SaschParser.Score, 0); }
 		public ScoreContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -222,20 +255,12 @@ public class SaschParser extends Parser {
 
 	public final ScoreContext score() throws RecognitionException {
 		ScoreContext _localctx = new ScoreContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_score);
+		enterRule(_localctx, 6, RULE_score);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(20);
-			match(Kills);
-			setState(21);
-			match(SLASH);
-			setState(22);
-			match(Deaths);
-			setState(23);
-			match(SLASH);
 			setState(24);
-			match(Assists);
+			match(Score);
 			}
 		}
 		catch (RecognitionException re) {
@@ -267,7 +292,7 @@ public class SaschParser extends Parser {
 
 	public final ItemsContext items() throws RecognitionException {
 		ItemsContext _localctx = new ItemsContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_items);
+		enterRule(_localctx, 8, RULE_items);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -288,13 +313,13 @@ public class SaschParser extends Parser {
 
 	public static final String _serializedATN =
 		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24\37\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\2\2\6\2\4\6\b\2\2\2\32\2\n\3\2\2\2"+
-		"\4\16\3\2\2\2\6\26\3\2\2\2\b\34\3\2\2\2\n\13\5\4\3\2\13\f\7\3\2\2\f\r"+
-		"\5\4\3\2\r\3\3\2\2\2\16\17\7\n\2\2\17\20\7\7\2\2\20\21\5\6\4\2\21\22\7"+
-		"\4\2\2\22\23\7\5\2\2\23\24\5\b\5\2\24\25\7\6\2\2\25\5\3\2\2\2\26\27\7"+
-		"\f\2\2\27\30\7\b\2\2\30\31\7\r\2\2\31\32\7\b\2\2\32\33\7\16\2\2\33\7\3"+
-		"\2\2\2\34\35\7\17\2\2\35\t\3\2\2\2\2";
+		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\3\3\3\4\3\4\3\5\3\5\3\6\3\6\3\6\2\2\7\2\4\6\b\n\2\2\2\31\2\f\3\2\2"+
+		"\2\4\20\3\2\2\2\6\30\3\2\2\2\b\32\3\2\2\2\n\34\3\2\2\2\f\r\5\4\3\2\r\16"+
+		"\7\3\2\2\16\17\5\4\3\2\17\3\3\2\2\2\20\21\5\6\4\2\21\22\7\7\2\2\22\23"+
+		"\5\b\5\2\23\24\7\4\2\2\24\25\7\5\2\2\25\26\5\n\6\2\26\27\7\6\2\2\27\5"+
+		"\3\2\2\2\30\31\7\n\2\2\31\7\3\2\2\2\32\33\7\13\2\2\33\t\3\2\2\2\34\35"+
+		"\7\17\2\2\35\13\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

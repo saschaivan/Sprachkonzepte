@@ -27,6 +27,16 @@ public interface SaschParserListener extends ParseTreeListener {
 	 */
 	void exitSide(SaschParser.SideContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SaschParser#champion}.
+	 * @param ctx the parse tree
+	 */
+	void enterChampion(SaschParser.ChampionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#champion}.
+	 * @param ctx the parse tree
+	 */
+	void exitChampion(SaschParser.ChampionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SaschParser#score}.
 	 * @param ctx the parse tree
 	 */

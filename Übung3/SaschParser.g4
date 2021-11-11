@@ -3,8 +3,28 @@ options { tokenVocab=Sasch ; }
 
 matchup: side VS side ; 
 
-side: Champion COLON score DIVIDER BRACKETOPEN items BRACKETCLOSE;
+side: champion COLON score DIVIDER BRACKETOPEN items BRACKETCLOSE;
 
-score: Kills SLASH Deaths SLASH Assists ;
+champion: Champion ;
+
+score: Score ;
 
 items: Items ;
+
+/*
+score: kills SLASH deaths SLASH assists ;
+
+kills: Kills ;
+
+deaths: Deaths ;
+
+assists: Assists ;
+
+items: mythic | mythic COMMA normal (COMMA (Normal | Unique) COMMA items)? ;
+
+mythic: Mythics ; 
+
+normal: Normal ;
+
+unique: Unique ;
+*/

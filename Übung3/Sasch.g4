@@ -2,9 +2,9 @@ lexer grammar Sasch;
 
 //Sasch: Champion ' : ' Score ' - ' '['Items']' ' vs. ' Champion ' : ' Score ' - ' '['Items']';
 
-VS: ' vs. ' ;
+fragment VS: ' vs. ' ;
 
-DIVIDER: ' - ' ;
+fragment DIVIDER: ' - ' ;
 
 BRACKETOPEN: '[' ;
 
@@ -12,7 +12,7 @@ BRACKETCLOSE: ']' ;
 
 COLON: ' : ' ; 
 
-SLASH: '/' ; 
+SLASH: '/'  ; 
 
 COMMA: ', ' ; 
 
@@ -174,17 +174,17 @@ Champion:  'Aatrox' |
                     'Zoe' |
                     'Zyra' ;
 
-Score: Kills'/'Deaths'/'Assists ;
+Score: Kills SLASH Deaths SLASH Assists ;
 
-Kills: [0-9]?[0-9] ;
+fragment Kills: ([0-9])+ ;
 
-Deaths: [0-9]?[0-9] ;
+fragment Deaths: ([0-9])+ ;
 
-Assists: [0-9]?[0-9] ;
+fragment Assists: ([0-9])+ ;
 
 Items: Mythics | Mythics COMMA OtherItems ;
 
-OtherItems: (Normal | Unique) | (Normal | Unique) COMMA OtherItems; 
+OtherItems: (Normal | Unique) | (Normal | Unique) COMMA OtherItems ; 
 
 Mythics:   'Bloodward' |
                     'Ceaseless Hunger' |

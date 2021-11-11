@@ -39,6 +39,18 @@ public class SaschParserBaseListener implements SaschParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterChampion(SaschParser.ChampionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitChampion(SaschParser.ChampionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterScore(SaschParser.ScoreContext ctx) { }
 	/**
 	 * {@inheritDoc}
