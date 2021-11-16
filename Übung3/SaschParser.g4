@@ -18,7 +18,8 @@ deaths: NUMBER;
 assists: NUMBER;
 
 items:
-	(BRACKETOPEN (mythic | normal | unique) BRACKETCLOSE)
+	(BRACKETOPEN BRACKETCLOSE)
+	| (BRACKETOPEN (mythic | normal | unique) BRACKETCLOSE)
 	| BRACKETOPEN (mythic | normal | unique) (
 		COMMA (normal | unique)
 	)+ BRACKETCLOSE;

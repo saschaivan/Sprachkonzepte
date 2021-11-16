@@ -457,7 +457,7 @@ public class SaschParser extends Parser {
 		enterRule(_localctx, 14, RULE_items);
 		int _la;
 		try {
-			setState(75);
+			setState(77);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
@@ -466,31 +466,7 @@ public class SaschParser extends Parser {
 				{
 				setState(50);
 				match(BRACKETOPEN);
-				setState(54);
-				_errHandler.sync(this);
-				switch (_input.LA(1)) {
-				case Mythics:
-					{
-					setState(51);
-					mythic();
-					}
-					break;
-				case Normal:
-					{
-					setState(52);
-					normal();
-					}
-					break;
-				case Unique:
-					{
-					setState(53);
-					unique();
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				setState(56);
+				setState(51);
 				match(BRACKETCLOSE);
 				}
 				}
@@ -498,52 +474,87 @@ public class SaschParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(58);
+				{
+				setState(52);
 				match(BRACKETOPEN);
-				setState(62);
+				setState(56);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case Mythics:
 					{
-					setState(59);
+					setState(53);
 					mythic();
 					}
 					break;
 				case Normal:
 					{
-					setState(60);
+					setState(54);
 					normal();
 					}
 					break;
 				case Unique:
 					{
-					setState(61);
+					setState(55);
 					unique();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(69); 
+				setState(58);
+				match(BRACKETCLOSE);
+				}
+				}
+				break;
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(60);
+				match(BRACKETOPEN);
+				setState(64);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case Mythics:
+					{
+					setState(61);
+					mythic();
+					}
+					break;
+				case Normal:
+					{
+					setState(62);
+					normal();
+					}
+					break;
+				case Unique:
+					{
+					setState(63);
+					unique();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				setState(71); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(64);
+					setState(66);
 					match(COMMA);
-					setState(67);
+					setState(69);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case Normal:
 						{
-						setState(65);
+						setState(67);
 						normal();
 						}
 						break;
 					case Unique:
 						{
-						setState(66);
+						setState(68);
 						unique();
 						}
 						break;
@@ -552,11 +563,11 @@ public class SaschParser extends Parser {
 					}
 					}
 					}
-					setState(71); 
+					setState(73); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==COMMA );
-				setState(73);
+				setState(75);
 				match(BRACKETCLOSE);
 				}
 				break;
@@ -595,7 +606,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(77);
+			setState(79);
 			match(Mythics);
 			}
 		}
@@ -632,7 +643,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(79);
+			setState(81);
 			match(Normal);
 			}
 		}
@@ -669,7 +680,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(81);
+			setState(83);
 			match(Unique);
 			}
 		}
@@ -685,26 +696,27 @@ public class SaschParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\17V\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\17X\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
 		"\f\t\f\3\2\3\2\3\2\3\2\6\2\35\n\2\r\2\16\2\36\3\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\t\3"+
-		"\t\5\t9\n\t\3\t\3\t\3\t\3\t\3\t\3\t\5\tA\n\t\3\t\3\t\3\t\5\tF\n\t\6\t"+
-		"H\n\t\r\t\16\tI\3\t\3\t\5\tN\n\t\3\n\3\n\3\13\3\13\3\f\3\f\3\f\2\2\r\2"+
-		"\4\6\b\n\f\16\20\22\24\26\2\2\2R\2\34\3\2\2\2\4 \3\2\2\2\6&\3\2\2\2\b"+
-		"(\3\2\2\2\n.\3\2\2\2\f\60\3\2\2\2\16\62\3\2\2\2\20M\3\2\2\2\22O\3\2\2"+
-		"\2\24Q\3\2\2\2\26S\3\2\2\2\30\31\5\4\3\2\31\32\7\3\2\2\32\33\5\4\3\2\33"+
-		"\35\3\2\2\2\34\30\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37"+
-		"\3\3\2\2\2 !\5\6\4\2!\"\7\7\2\2\"#\5\b\5\2#$\7\4\2\2$%\5\20\t\2%\5\3\2"+
-		"\2\2&\'\7\n\2\2\'\7\3\2\2\2()\5\n\6\2)*\7\b\2\2*+\5\f\7\2+,\7\b\2\2,-"+
-		"\5\16\b\2-\t\3\2\2\2./\7\13\2\2/\13\3\2\2\2\60\61\7\13\2\2\61\r\3\2\2"+
-		"\2\62\63\7\13\2\2\63\17\3\2\2\2\648\7\5\2\2\659\5\22\n\2\669\5\24\13\2"+
-		"\679\5\26\f\28\65\3\2\2\28\66\3\2\2\28\67\3\2\2\29:\3\2\2\2:;\7\6\2\2"+
-		";N\3\2\2\2<@\7\5\2\2=A\5\22\n\2>A\5\24\13\2?A\5\26\f\2@=\3\2\2\2@>\3\2"+
-		"\2\2@?\3\2\2\2AG\3\2\2\2BE\7\t\2\2CF\5\24\13\2DF\5\26\f\2EC\3\2\2\2ED"+
-		"\3\2\2\2FH\3\2\2\2GB\3\2\2\2HI\3\2\2\2IG\3\2\2\2IJ\3\2\2\2JK\3\2\2\2K"+
-		"L\7\6\2\2LN\3\2\2\2M\64\3\2\2\2M<\3\2\2\2N\21\3\2\2\2OP\7\f\2\2P\23\3"+
-		"\2\2\2QR\7\r\2\2R\25\3\2\2\2ST\7\16\2\2T\27\3\2\2\2\b\368@EIM";
+		"\t\3\t\3\t\5\t;\n\t\3\t\3\t\3\t\3\t\3\t\3\t\5\tC\n\t\3\t\3\t\3\t\5\tH"+
+		"\n\t\6\tJ\n\t\r\t\16\tK\3\t\3\t\5\tP\n\t\3\n\3\n\3\13\3\13\3\f\3\f\3\f"+
+		"\2\2\r\2\4\6\b\n\f\16\20\22\24\26\2\2\2U\2\34\3\2\2\2\4 \3\2\2\2\6&\3"+
+		"\2\2\2\b(\3\2\2\2\n.\3\2\2\2\f\60\3\2\2\2\16\62\3\2\2\2\20O\3\2\2\2\22"+
+		"Q\3\2\2\2\24S\3\2\2\2\26U\3\2\2\2\30\31\5\4\3\2\31\32\7\3\2\2\32\33\5"+
+		"\4\3\2\33\35\3\2\2\2\34\30\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3"+
+		"\2\2\2\37\3\3\2\2\2 !\5\6\4\2!\"\7\7\2\2\"#\5\b\5\2#$\7\4\2\2$%\5\20\t"+
+		"\2%\5\3\2\2\2&\'\7\n\2\2\'\7\3\2\2\2()\5\n\6\2)*\7\b\2\2*+\5\f\7\2+,\7"+
+		"\b\2\2,-\5\16\b\2-\t\3\2\2\2./\7\13\2\2/\13\3\2\2\2\60\61\7\13\2\2\61"+
+		"\r\3\2\2\2\62\63\7\13\2\2\63\17\3\2\2\2\64\65\7\5\2\2\65P\7\6\2\2\66:"+
+		"\7\5\2\2\67;\5\22\n\28;\5\24\13\29;\5\26\f\2:\67\3\2\2\2:8\3\2\2\2:9\3"+
+		"\2\2\2;<\3\2\2\2<=\7\6\2\2=P\3\2\2\2>B\7\5\2\2?C\5\22\n\2@C\5\24\13\2"+
+		"AC\5\26\f\2B?\3\2\2\2B@\3\2\2\2BA\3\2\2\2CI\3\2\2\2DG\7\t\2\2EH\5\24\13"+
+		"\2FH\5\26\f\2GE\3\2\2\2GF\3\2\2\2HJ\3\2\2\2ID\3\2\2\2JK\3\2\2\2KI\3\2"+
+		"\2\2KL\3\2\2\2LM\3\2\2\2MN\7\6\2\2NP\3\2\2\2O\64\3\2\2\2O\66\3\2\2\2O"+
+		">\3\2\2\2P\21\3\2\2\2QR\7\f\2\2R\23\3\2\2\2ST\7\r\2\2T\25\3\2\2\2UV\7"+
+		"\16\2\2V\27\3\2\2\2\b\36:BGKO";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
