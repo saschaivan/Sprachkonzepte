@@ -177,13 +177,6 @@ Champion:
 
 NUMBER: ([0-9])+;
 
-/* Items: Mythics | Mythics COMMA OtherItems;
- 
- OtherItems: (Normal | Unique)
- | (Normal | Unique)
- COMMA OtherItems;
- */
-
 Mythics:
 	'Bloodward'
 	| 'Ceaseless Hunger'
