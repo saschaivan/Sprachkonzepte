@@ -1,30 +1,30 @@
-parser grammar SaschParser ;
-options { tokenVocab=Sasch ; }
+parser grammar SaschParser;
+options {
+	tokenVocab = Sasch;
+}
 
-matchup: side VS side ; 
+matchup: (side VS side)+;
 
-side: champion COLON score DIVIDER BRACKETOPEN items BRACKETCLOSE;
+side: champion COLON score DIVIDER items;
 
-champion: Champion ;
+champion: Champion;
 
-score: Score ;
+score: kills SLASH deaths SLASH assists;
 
-items: Items ;
+kills: NUMBER;
 
-/*
-score: kills SLASH deaths SLASH assists ;
+deaths: NUMBER;
 
-kills: Kills ;
+assists: NUMBER;
 
-deaths: Deaths ;
+items:
+	(BRACKETOPEN (mythic | normal | unique) BRACKETCLOSE)
+	| BRACKETOPEN (mythic | normal | unique) (
+		COMMA (normal | unique)
+	)+ BRACKETCLOSE;
 
-assists: Assists ;
+mythic: Mythics;
 
-items: mythic | mythic COMMA normal (COMMA (Normal | Unique) COMMA items)? ;
+normal: Normal;
 
-mythic: Mythics ; 
-
-normal: Normal ;
-
-unique: Unique ;
-*/
+unique: Unique;

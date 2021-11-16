@@ -47,6 +47,36 @@ public interface SaschParserListener extends ParseTreeListener {
 	 */
 	void exitScore(SaschParser.ScoreContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link SaschParser#kills}.
+	 * @param ctx the parse tree
+	 */
+	void enterKills(SaschParser.KillsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#kills}.
+	 * @param ctx the parse tree
+	 */
+	void exitKills(SaschParser.KillsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SaschParser#deaths}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeaths(SaschParser.DeathsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#deaths}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeaths(SaschParser.DeathsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SaschParser#assists}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssists(SaschParser.AssistsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#assists}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssists(SaschParser.AssistsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SaschParser#items}.
 	 * @param ctx the parse tree
 	 */
@@ -56,4 +86,34 @@ public interface SaschParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitItems(SaschParser.ItemsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SaschParser#mythic}.
+	 * @param ctx the parse tree
+	 */
+	void enterMythic(SaschParser.MythicContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#mythic}.
+	 * @param ctx the parse tree
+	 */
+	void exitMythic(SaschParser.MythicContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SaschParser#normal}.
+	 * @param ctx the parse tree
+	 */
+	void enterNormal(SaschParser.NormalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#normal}.
+	 * @param ctx the parse tree
+	 */
+	void exitNormal(SaschParser.NormalContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SaschParser#unique}.
+	 * @param ctx the parse tree
+	 */
+	void enterUnique(SaschParser.UniqueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#unique}.
+	 * @param ctx the parse tree
+	 */
+	void exitUnique(SaschParser.UniqueContext ctx);
 }

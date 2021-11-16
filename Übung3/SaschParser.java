@@ -17,13 +17,15 @@ public class SaschParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		VS=1, DIVIDER=2, BRACKETOPEN=3, BRACKETCLOSE=4, COLON=5, SLASH=6, COMMA=7, 
-		Champion=8, Score=9, Kills=10, Deaths=11, Assists=12, Items=13, OtherItems=14, 
-		Mythics=15, Normal=16, Unique=17, WS=18;
+		Champion=8, NUMBER=9, Mythics=10, Normal=11, Unique=12, WS=13;
 	public static final int
-		RULE_matchup = 0, RULE_side = 1, RULE_champion = 2, RULE_score = 3, RULE_items = 4;
+		RULE_matchup = 0, RULE_side = 1, RULE_champion = 2, RULE_score = 3, RULE_kills = 4, 
+		RULE_deaths = 5, RULE_assists = 6, RULE_items = 7, RULE_mythic = 8, RULE_normal = 9, 
+		RULE_unique = 10;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"matchup", "side", "champion", "score", "items"
+			"matchup", "side", "champion", "score", "kills", "deaths", "assists", 
+			"items", "mythic", "normal", "unique"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -37,8 +39,7 @@ public class SaschParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "VS", "DIVIDER", "BRACKETOPEN", "BRACKETCLOSE", "COLON", "SLASH", 
-			"COMMA", "Champion", "Score", "Kills", "Deaths", "Assists", "Items", 
-			"OtherItems", "Mythics", "Normal", "Unique", "WS"
+			"COMMA", "Champion", "NUMBER", "Mythics", "Normal", "Unique", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -99,7 +100,10 @@ public class SaschParser extends Parser {
 		public SideContext side(int i) {
 			return getRuleContext(SideContext.class,i);
 		}
-		public TerminalNode VS() { return getToken(SaschParser.VS, 0); }
+		public List<TerminalNode> VS() { return getTokens(SaschParser.VS); }
+		public TerminalNode VS(int i) {
+			return getToken(SaschParser.VS, i);
+		}
 		public MatchupContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -117,15 +121,28 @@ public class SaschParser extends Parser {
 	public final MatchupContext matchup() throws RecognitionException {
 		MatchupContext _localctx = new MatchupContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_matchup);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(10);
-			side();
-			setState(11);
-			match(VS);
-			setState(12);
-			side();
+			setState(26); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				{
+				setState(22);
+				side();
+				setState(23);
+				match(VS);
+				setState(24);
+				side();
+				}
+				}
+				setState(28); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( _la==Champion );
 			}
 		}
 		catch (RecognitionException re) {
@@ -148,11 +165,9 @@ public class SaschParser extends Parser {
 			return getRuleContext(ScoreContext.class,0);
 		}
 		public TerminalNode DIVIDER() { return getToken(SaschParser.DIVIDER, 0); }
-		public TerminalNode BRACKETOPEN() { return getToken(SaschParser.BRACKETOPEN, 0); }
 		public ItemsContext items() {
 			return getRuleContext(ItemsContext.class,0);
 		}
-		public TerminalNode BRACKETCLOSE() { return getToken(SaschParser.BRACKETCLOSE, 0); }
 		public SideContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -173,20 +188,16 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(14);
+			setState(30);
 			champion();
-			setState(15);
+			setState(31);
 			match(COLON);
-			setState(16);
+			setState(32);
 			score();
-			setState(17);
+			setState(33);
 			match(DIVIDER);
-			setState(18);
-			match(BRACKETOPEN);
-			setState(19);
+			setState(34);
 			items();
-			setState(20);
-			match(BRACKETCLOSE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -222,7 +233,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(22);
+			setState(36);
 			match(Champion);
 			}
 		}
@@ -238,7 +249,19 @@ public class SaschParser extends Parser {
 	}
 
 	public static class ScoreContext extends ParserRuleContext {
-		public TerminalNode Score() { return getToken(SaschParser.Score, 0); }
+		public KillsContext kills() {
+			return getRuleContext(KillsContext.class,0);
+		}
+		public List<TerminalNode> SLASH() { return getTokens(SaschParser.SLASH); }
+		public TerminalNode SLASH(int i) {
+			return getToken(SaschParser.SLASH, i);
+		}
+		public DeathsContext deaths() {
+			return getRuleContext(DeathsContext.class,0);
+		}
+		public AssistsContext assists() {
+			return getRuleContext(AssistsContext.class,0);
+		}
 		public ScoreContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -259,8 +282,127 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(24);
-			match(Score);
+			setState(38);
+			kills();
+			setState(39);
+			match(SLASH);
+			setState(40);
+			deaths();
+			setState(41);
+			match(SLASH);
+			setState(42);
+			assists();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class KillsContext extends ParserRuleContext {
+		public TerminalNode NUMBER() { return getToken(SaschParser.NUMBER, 0); }
+		public KillsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_kills; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterKills(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitKills(this);
+		}
+	}
+
+	public final KillsContext kills() throws RecognitionException {
+		KillsContext _localctx = new KillsContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_kills);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(44);
+			match(NUMBER);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DeathsContext extends ParserRuleContext {
+		public TerminalNode NUMBER() { return getToken(SaschParser.NUMBER, 0); }
+		public DeathsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_deaths; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterDeaths(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitDeaths(this);
+		}
+	}
+
+	public final DeathsContext deaths() throws RecognitionException {
+		DeathsContext _localctx = new DeathsContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_deaths);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(46);
+			match(NUMBER);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class AssistsContext extends ParserRuleContext {
+		public TerminalNode NUMBER() { return getToken(SaschParser.NUMBER, 0); }
+		public AssistsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_assists; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterAssists(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitAssists(this);
+		}
+	}
+
+	public final AssistsContext assists() throws RecognitionException {
+		AssistsContext _localctx = new AssistsContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_assists);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(48);
+			match(NUMBER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -275,7 +417,27 @@ public class SaschParser extends Parser {
 	}
 
 	public static class ItemsContext extends ParserRuleContext {
-		public TerminalNode Items() { return getToken(SaschParser.Items, 0); }
+		public TerminalNode BRACKETOPEN() { return getToken(SaschParser.BRACKETOPEN, 0); }
+		public TerminalNode BRACKETCLOSE() { return getToken(SaschParser.BRACKETCLOSE, 0); }
+		public MythicContext mythic() {
+			return getRuleContext(MythicContext.class,0);
+		}
+		public List<NormalContext> normal() {
+			return getRuleContexts(NormalContext.class);
+		}
+		public NormalContext normal(int i) {
+			return getRuleContext(NormalContext.class,i);
+		}
+		public List<UniqueContext> unique() {
+			return getRuleContexts(UniqueContext.class);
+		}
+		public UniqueContext unique(int i) {
+			return getRuleContext(UniqueContext.class,i);
+		}
+		public List<TerminalNode> COMMA() { return getTokens(SaschParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(SaschParser.COMMA, i);
+		}
 		public ItemsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -292,12 +454,223 @@ public class SaschParser extends Parser {
 
 	public final ItemsContext items() throws RecognitionException {
 		ItemsContext _localctx = new ItemsContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_items);
+		enterRule(_localctx, 14, RULE_items);
+		int _la;
+		try {
+			setState(75);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				{
+				setState(50);
+				match(BRACKETOPEN);
+				setState(54);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case Mythics:
+					{
+					setState(51);
+					mythic();
+					}
+					break;
+				case Normal:
+					{
+					setState(52);
+					normal();
+					}
+					break;
+				case Unique:
+					{
+					setState(53);
+					unique();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				setState(56);
+				match(BRACKETCLOSE);
+				}
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(58);
+				match(BRACKETOPEN);
+				setState(62);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case Mythics:
+					{
+					setState(59);
+					mythic();
+					}
+					break;
+				case Normal:
+					{
+					setState(60);
+					normal();
+					}
+					break;
+				case Unique:
+					{
+					setState(61);
+					unique();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				setState(69); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				do {
+					{
+					{
+					setState(64);
+					match(COMMA);
+					setState(67);
+					_errHandler.sync(this);
+					switch (_input.LA(1)) {
+					case Normal:
+						{
+						setState(65);
+						normal();
+						}
+						break;
+					case Unique:
+						{
+						setState(66);
+						unique();
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					}
+					}
+					setState(71); 
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				} while ( _la==COMMA );
+				setState(73);
+				match(BRACKETCLOSE);
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class MythicContext extends ParserRuleContext {
+		public TerminalNode Mythics() { return getToken(SaschParser.Mythics, 0); }
+		public MythicContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_mythic; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterMythic(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitMythic(this);
+		}
+	}
+
+	public final MythicContext mythic() throws RecognitionException {
+		MythicContext _localctx = new MythicContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_mythic);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(26);
-			match(Items);
+			setState(77);
+			match(Mythics);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class NormalContext extends ParserRuleContext {
+		public TerminalNode Normal() { return getToken(SaschParser.Normal, 0); }
+		public NormalContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_normal; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterNormal(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitNormal(this);
+		}
+	}
+
+	public final NormalContext normal() throws RecognitionException {
+		NormalContext _localctx = new NormalContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_normal);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(79);
+			match(Normal);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class UniqueContext extends ParserRuleContext {
+		public TerminalNode Unique() { return getToken(SaschParser.Unique, 0); }
+		public UniqueContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_unique; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterUnique(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitUnique(this);
+		}
+	}
+
+	public final UniqueContext unique() throws RecognitionException {
+		UniqueContext _localctx = new UniqueContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_unique);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(81);
+			match(Unique);
 			}
 		}
 		catch (RecognitionException re) {
@@ -312,14 +685,26 @@ public class SaschParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24\37\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\4\3\4\3\5\3\5\3\6\3\6\3\6\2\2\7\2\4\6\b\n\2\2\2\31\2\f\3\2\2"+
-		"\2\4\20\3\2\2\2\6\30\3\2\2\2\b\32\3\2\2\2\n\34\3\2\2\2\f\r\5\4\3\2\r\16"+
-		"\7\3\2\2\16\17\5\4\3\2\17\3\3\2\2\2\20\21\5\6\4\2\21\22\7\7\2\2\22\23"+
-		"\5\b\5\2\23\24\7\4\2\2\24\25\7\5\2\2\25\26\5\n\6\2\26\27\7\6\2\2\27\5"+
-		"\3\2\2\2\30\31\7\n\2\2\31\7\3\2\2\2\32\33\7\13\2\2\33\t\3\2\2\2\34\35"+
-		"\7\17\2\2\35\13\3\2\2\2\2";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\17V\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
+		"\f\t\f\3\2\3\2\3\2\3\2\6\2\35\n\2\r\2\16\2\36\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\t\3"+
+		"\t\5\t9\n\t\3\t\3\t\3\t\3\t\3\t\3\t\5\tA\n\t\3\t\3\t\3\t\5\tF\n\t\6\t"+
+		"H\n\t\r\t\16\tI\3\t\3\t\5\tN\n\t\3\n\3\n\3\13\3\13\3\f\3\f\3\f\2\2\r\2"+
+		"\4\6\b\n\f\16\20\22\24\26\2\2\2R\2\34\3\2\2\2\4 \3\2\2\2\6&\3\2\2\2\b"+
+		"(\3\2\2\2\n.\3\2\2\2\f\60\3\2\2\2\16\62\3\2\2\2\20M\3\2\2\2\22O\3\2\2"+
+		"\2\24Q\3\2\2\2\26S\3\2\2\2\30\31\5\4\3\2\31\32\7\3\2\2\32\33\5\4\3\2\33"+
+		"\35\3\2\2\2\34\30\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37"+
+		"\3\3\2\2\2 !\5\6\4\2!\"\7\7\2\2\"#\5\b\5\2#$\7\4\2\2$%\5\20\t\2%\5\3\2"+
+		"\2\2&\'\7\n\2\2\'\7\3\2\2\2()\5\n\6\2)*\7\b\2\2*+\5\f\7\2+,\7\b\2\2,-"+
+		"\5\16\b\2-\t\3\2\2\2./\7\13\2\2/\13\3\2\2\2\60\61\7\13\2\2\61\r\3\2\2"+
+		"\2\62\63\7\13\2\2\63\17\3\2\2\2\648\7\5\2\2\659\5\22\n\2\669\5\24\13\2"+
+		"\679\5\26\f\28\65\3\2\2\28\66\3\2\2\28\67\3\2\2\29:\3\2\2\2:;\7\6\2\2"+
+		";N\3\2\2\2<@\7\5\2\2=A\5\22\n\2>A\5\24\13\2?A\5\26\f\2@=\3\2\2\2@>\3\2"+
+		"\2\2@?\3\2\2\2AG\3\2\2\2BE\7\t\2\2CF\5\24\13\2DF\5\26\f\2EC\3\2\2\2ED"+
+		"\3\2\2\2FH\3\2\2\2GB\3\2\2\2HI\3\2\2\2IG\3\2\2\2IJ\3\2\2\2JK\3\2\2\2K"+
+		"L\7\6\2\2LN\3\2\2\2M\64\3\2\2\2M<\3\2\2\2N\21\3\2\2\2OP\7\f\2\2P\23\3"+
+		"\2\2\2QR\7\r\2\2R\25\3\2\2\2ST\7\16\2\2T\27\3\2\2\2\b\368@EIM";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
