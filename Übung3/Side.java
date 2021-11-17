@@ -1,6 +1,6 @@
 import java.util.*;
 
-public final class Side extends Expr {
+public final class Side {
     private final String champion;
     private List<String> items = new LinkedList<String>();
     private int[] score = new int[3];

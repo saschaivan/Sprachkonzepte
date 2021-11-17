@@ -7,6 +7,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface SaschParserListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link SaschParser#game}.
+	 * @param ctx the parse tree
+	 */
+	void enterGame(SaschParser.GameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#game}.
+	 * @param ctx the parse tree
+	 */
+	void exitGame(SaschParser.GameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SaschParser#matchup}.
 	 * @param ctx the parse tree
 	 */

@@ -3,7 +3,9 @@ options {
 	tokenVocab = Sasch;
 }
 
-matchup: (side VS side)+;
+game: matchup+ ;
+
+matchup: side VS side ;
 
 side: champion COLON score DIVIDER items;
 

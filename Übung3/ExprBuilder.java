@@ -2,47 +2,54 @@
 // ExprBuilder.java
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
-public final class ExprBuilder extends ExprParserBaseListener {
-    private Stack<Expr> stack = new Stack<Expr>();
+import javax.print.DocFlavor.STRING;
 
-    public Expr build(ParseTree tree) {
+public final class ExprBuilder extends SaschParserBaseListener {
+    private Matchup matchup;
+    private Stack<Side> side;
+    private int[] score;
+    String champion; 
+    List<String> itemsList = new LinkedList<String>();
+    
+    public Matchup build(ParseTree tree) {
         new ParseTreeWalker().walk(this, tree);
-        return this.stack.pop();
+        return matchup;
     }
 
     @Override
-    public void exitExpr(ExprParser.ExprContext ctx) {
-        if (ctx.getChildCount() == 3) {
-            Expr right = this.stack.pop();
-            Expr left = this.stack.pop();
-            this.stack.push(new Matchup(left, right));
-        }
+    public void exitMatchup(SaschParser.MatchupContext ctx) {
+        Side right = side.pop();
+        Side left = side.pop();
+        matchup = new Matchup(left, right);
     }
 
     @Override
-    public void exitMultExpr(ExprParser.MultExprContext ctx) {
-        if (ctx.getChildCount() == 3) {
-            Expr right = this.stack.pop();
-            Expr left = this.stack.pop();
-            String op = ctx.getChild(1).getText();
-            this.stack.push(new Operation(left, op, right));
-        }
+    public void exitSide(SaschParser.SideContext ctx) {
+        side.push(new Side(champion, itemsList, score));
     }
 
     @Override
-    public void exitValue(ExprParser.ValueContext ctx) {
-        String s = ctx.Number().getText();
-        switch (ctx.getStart().getType()) {
-        case ExprLexer.PLUS:
-            s = ctx.PLUS().getText() + s;
-            break;
-        case ExprLexer.MINUS:
-            s = ctx.MINUS().getText() + s;
-            break;
-        }
+    public void exitScore(SaschParser.ScoreContext ctx) {
+        String kills = ctx.kills().getText();
+        String deaths = ctx.deaths().getText();
+        String assists = ctx.assists().getText();
+        this.score[0] = Integer.parseInt(kills);
+        this.score[1] = Integer.parseInt(deaths);
+        this.score[2] = Integer.parseInt(assists);
+    }
 
-        this.stack.push(new Value(s));
+    @Override
+    public void exitItems(SaschParser.ItemsContext ctx) {
+        
+    }
+
+    @Override
+    public void exitChampion(SaschParser.ChampionContext ctx) {
+        this.champion = ctx.Champion().getText();
     }
 }

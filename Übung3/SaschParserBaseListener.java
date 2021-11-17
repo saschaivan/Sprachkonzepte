@@ -15,6 +15,18 @@ public class SaschParserBaseListener implements SaschParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterGame(SaschParser.GameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGame(SaschParser.GameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMatchup(SaschParser.MatchupContext ctx) { }
 	/**
 	 * {@inheritDoc}
