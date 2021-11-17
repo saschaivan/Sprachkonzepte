@@ -13,9 +13,9 @@ public final class ExprBuilder extends SaschParserBaseListener {
     private Matchup matchup;
     private Stack<Side> side;
     private int[] score;
-    String champion; 
+    String champion;
     List<String> itemsList = new LinkedList<String>();
-    
+
     public Matchup build(ParseTree tree) {
         new ParseTreeWalker().walk(this, tree);
         return matchup;
@@ -38,14 +38,12 @@ public final class ExprBuilder extends SaschParserBaseListener {
         String kills = ctx.kills().getText();
         String deaths = ctx.deaths().getText();
         String assists = ctx.assists().getText();
-        this.score[0] = Integer.parseInt(kills);
-        this.score[1] = Integer.parseInt(deaths);
-        this.score[2] = Integer.parseInt(assists);
+        this.score = new int[] { Integer.parseInt(kills), Integer.parseInt(deaths), Integer.parseInt(assists) };
     }
 
     @Override
     public void exitItems(SaschParser.ItemsContext ctx) {
-        
+
     }
 
     @Override
