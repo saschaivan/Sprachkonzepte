@@ -379,4 +379,26 @@ Unique:
 	| 'Slightly Magical Boots'
 	| 'Your Cut';
 
+ChargesStacks:
+	'Control Ward'
+	| 'Corrupting Potion'
+	| 'Dark Seal'
+	| 'Emberknife'
+	| 'Frostfang'
+	| 'Hailblade'
+	| 'Harrowing Crescent'
+	| 'Health Potion'
+	| 'Manamune'
+	| 'Mejai\'s Soulstealer'
+	| 'Minion Dematerializer'
+	| 'Pauldrons of Whiterock'
+	| 'Refillable Potion'
+	| 'Runesteel Spaulders'
+	| 'Shard of True Ice'
+	| 'Targon\'s Buckler'
+	| 'Tear of the Goddess'
+	| 'Total Biscuit of Everlasting Will'
+	| 'Vigilant Wardstone'
+	| 'Watchful Wardstone';
+
 WS: [ \t\r\n]+ -> channel(HIDDEN);

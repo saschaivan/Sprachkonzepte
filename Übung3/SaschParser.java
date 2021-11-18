@@ -17,15 +17,16 @@ public class SaschParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		VS=1, DIVIDER=2, BRACKETOPEN=3, BRACKETCLOSE=4, COLON=5, SLASH=6, COMMA=7, 
-		Champion=8, NUMBER=9, Mythics=10, Normal=11, Unique=12, WS=13;
+		Champion=8, NUMBER=9, Mythics=10, Normal=11, Unique=12, ChargesStacks=13, 
+		WS=14;
 	public static final int
 		RULE_game = 0, RULE_matchup = 1, RULE_side = 2, RULE_champion = 3, RULE_score = 4, 
 		RULE_kills = 5, RULE_deaths = 6, RULE_assists = 7, RULE_items = 8, RULE_mythic = 9, 
-		RULE_normal = 10, RULE_unique = 11;
+		RULE_normal = 10, RULE_unique = 11, RULE_chargesStacks = 12;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"game", "matchup", "side", "champion", "score", "kills", "deaths", "assists", 
-			"items", "mythic", "normal", "unique"
+			"items", "mythic", "normal", "unique", "chargesStacks"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -39,7 +40,8 @@ public class SaschParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "VS", "DIVIDER", "BRACKETOPEN", "BRACKETCLOSE", "COLON", "SLASH", 
-			"COMMA", "Champion", "NUMBER", "Mythics", "Normal", "Unique", "WS"
+			"COMMA", "Champion", "NUMBER", "Mythics", "Normal", "Unique", "ChargesStacks", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -121,17 +123,17 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(25); 
+			setState(27); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(24);
+				setState(26);
 				matchup();
 				}
 				}
-				setState(27); 
+				setState(29); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==Champion );
@@ -176,11 +178,11 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29);
-			side();
-			setState(30);
-			match(VS);
 			setState(31);
+			side();
+			setState(32);
+			match(VS);
+			setState(33);
 			side();
 			}
 		}
@@ -227,15 +229,15 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(33);
-			champion();
-			setState(34);
-			match(COLON);
 			setState(35);
-			score();
+			champion();
 			setState(36);
-			match(DIVIDER);
+			match(COLON);
 			setState(37);
+			score();
+			setState(38);
+			match(DIVIDER);
+			setState(39);
 			items();
 			}
 		}
@@ -272,7 +274,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(39);
+			setState(41);
 			match(Champion);
 			}
 		}
@@ -321,15 +323,15 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(41);
-			kills();
-			setState(42);
-			match(SLASH);
 			setState(43);
-			deaths();
+			kills();
 			setState(44);
 			match(SLASH);
 			setState(45);
+			deaths();
+			setState(46);
+			match(SLASH);
+			setState(47);
 			assists();
 			}
 		}
@@ -366,7 +368,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(47);
+			setState(49);
 			match(NUMBER);
 			}
 		}
@@ -403,7 +405,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
+			setState(51);
 			match(NUMBER);
 			}
 		}
@@ -440,7 +442,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(53);
 			match(NUMBER);
 			}
 		}
@@ -473,6 +475,12 @@ public class SaschParser extends Parser {
 		public UniqueContext unique(int i) {
 			return getRuleContext(UniqueContext.class,i);
 		}
+		public List<ChargesStacksContext> chargesStacks() {
+			return getRuleContexts(ChargesStacksContext.class);
+		}
+		public ChargesStacksContext chargesStacks(int i) {
+			return getRuleContext(ChargesStacksContext.class,i);
+		}
 		public List<TerminalNode> COMMA() { return getTokens(SaschParser.COMMA); }
 		public TerminalNode COMMA(int i) {
 			return getToken(SaschParser.COMMA, i);
@@ -496,16 +504,16 @@ public class SaschParser extends Parser {
 		enterRule(_localctx, 16, RULE_items);
 		int _la;
 		try {
-			setState(80);
+			setState(85);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
 				{
-				setState(53);
+				setState(55);
 				match(BRACKETOPEN);
-				setState(54);
+				setState(56);
 				match(BRACKETCLOSE);
 				}
 				}
@@ -514,33 +522,39 @@ public class SaschParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				{
-				setState(55);
+				setState(57);
 				match(BRACKETOPEN);
-				setState(59);
+				setState(62);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case Mythics:
 					{
-					setState(56);
+					setState(58);
 					mythic();
 					}
 					break;
 				case Normal:
 					{
-					setState(57);
+					setState(59);
 					normal();
 					}
 					break;
 				case Unique:
 					{
-					setState(58);
+					setState(60);
 					unique();
+					}
+					break;
+				case ChargesStacks:
+					{
+					setState(61);
+					chargesStacks();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(61);
+				setState(64);
 				match(BRACKETCLOSE);
 				}
 				}
@@ -548,53 +562,65 @@ public class SaschParser extends Parser {
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(63);
+				setState(66);
 				match(BRACKETOPEN);
-				setState(67);
+				setState(71);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case Mythics:
 					{
-					setState(64);
+					setState(67);
 					mythic();
 					}
 					break;
 				case Normal:
 					{
-					setState(65);
+					setState(68);
 					normal();
 					}
 					break;
 				case Unique:
 					{
-					setState(66);
+					setState(69);
 					unique();
+					}
+					break;
+				case ChargesStacks:
+					{
+					setState(70);
+					chargesStacks();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(74); 
+				setState(79); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(69);
+					setState(73);
 					match(COMMA);
-					setState(72);
+					setState(77);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case Normal:
 						{
-						setState(70);
+						setState(74);
 						normal();
 						}
 						break;
 					case Unique:
 						{
-						setState(71);
+						setState(75);
 						unique();
+						}
+						break;
+					case ChargesStacks:
+						{
+						setState(76);
+						chargesStacks();
 						}
 						break;
 					default:
@@ -602,11 +628,11 @@ public class SaschParser extends Parser {
 					}
 					}
 					}
-					setState(76); 
+					setState(81); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==COMMA );
-				setState(78);
+				setState(83);
 				match(BRACKETCLOSE);
 				}
 				break;
@@ -645,7 +671,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(82);
+			setState(87);
 			match(Mythics);
 			}
 		}
@@ -682,7 +708,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(84);
+			setState(89);
 			match(Normal);
 			}
 		}
@@ -719,7 +745,7 @@ public class SaschParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(86);
+			setState(91);
 			match(Unique);
 			}
 		}
@@ -734,28 +760,67 @@ public class SaschParser extends Parser {
 		return _localctx;
 	}
 
+	public static class ChargesStacksContext extends ParserRuleContext {
+		public TerminalNode ChargesStacks() { return getToken(SaschParser.ChargesStacks, 0); }
+		public ChargesStacksContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_chargesStacks; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).enterChargesStacks(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof SaschParserListener ) ((SaschParserListener)listener).exitChargesStacks(this);
+		}
+	}
+
+	public final ChargesStacksContext chargesStacks() throws RecognitionException {
+		ChargesStacksContext _localctx = new ChargesStacksContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_chargesStacks);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(93);
+			match(ChargesStacks);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\17[\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20b\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
-		"\f\t\f\4\r\t\r\3\2\6\2\34\n\2\r\2\16\2\35\3\3\3\3\3\3\3\3\3\4\3\4\3\4"+
-		"\3\4\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3"+
-		"\n\3\n\3\n\3\n\3\n\3\n\5\n>\n\n\3\n\3\n\3\n\3\n\3\n\3\n\5\nF\n\n\3\n\3"+
-		"\n\3\n\5\nK\n\n\6\nM\n\n\r\n\16\nN\3\n\3\n\5\nS\n\n\3\13\3\13\3\f\3\f"+
-		"\3\r\3\r\3\r\2\2\16\2\4\6\b\n\f\16\20\22\24\26\30\2\2\2W\2\33\3\2\2\2"+
-		"\4\37\3\2\2\2\6#\3\2\2\2\b)\3\2\2\2\n+\3\2\2\2\f\61\3\2\2\2\16\63\3\2"+
-		"\2\2\20\65\3\2\2\2\22R\3\2\2\2\24T\3\2\2\2\26V\3\2\2\2\30X\3\2\2\2\32"+
-		"\34\5\4\3\2\33\32\3\2\2\2\34\35\3\2\2\2\35\33\3\2\2\2\35\36\3\2\2\2\36"+
-		"\3\3\2\2\2\37 \5\6\4\2 !\7\3\2\2!\"\5\6\4\2\"\5\3\2\2\2#$\5\b\5\2$%\7"+
-		"\7\2\2%&\5\n\6\2&\'\7\4\2\2\'(\5\22\n\2(\7\3\2\2\2)*\7\n\2\2*\t\3\2\2"+
-		"\2+,\5\f\7\2,-\7\b\2\2-.\5\16\b\2./\7\b\2\2/\60\5\20\t\2\60\13\3\2\2\2"+
-		"\61\62\7\13\2\2\62\r\3\2\2\2\63\64\7\13\2\2\64\17\3\2\2\2\65\66\7\13\2"+
-		"\2\66\21\3\2\2\2\678\7\5\2\28S\7\6\2\29=\7\5\2\2:>\5\24\13\2;>\5\26\f"+
-		"\2<>\5\30\r\2=:\3\2\2\2=;\3\2\2\2=<\3\2\2\2>?\3\2\2\2?@\7\6\2\2@S\3\2"+
-		"\2\2AE\7\5\2\2BF\5\24\13\2CF\5\26\f\2DF\5\30\r\2EB\3\2\2\2EC\3\2\2\2E"+
-		"D\3\2\2\2FL\3\2\2\2GJ\7\t\2\2HK\5\26\f\2IK\5\30\r\2JH\3\2\2\2JI\3\2\2"+
-		"\2KM\3\2\2\2LG\3\2\2\2MN\3\2\2\2NL\3\2\2\2NO\3\2\2\2OP\3\2\2\2PQ\7\6\2"+
-		"\2QS\3\2\2\2R\67\3\2\2\2R9\3\2\2\2RA\3\2\2\2S\23\3\2\2\2TU\7\f\2\2U\25"+
-		"\3\2\2\2VW\7\r\2\2W\27\3\2\2\2XY\7\16\2\2Y\31\3\2\2\2\b\35=EJNR";
+		"\f\t\f\4\r\t\r\4\16\t\16\3\2\6\2\36\n\2\r\2\16\2\37\3\3\3\3\3\3\3\3\3"+
+		"\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\b\3\b"+
+		"\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\nA\n\n\3\n\3\n\3\n\3\n\3\n\3\n"+
+		"\3\n\5\nJ\n\n\3\n\3\n\3\n\3\n\5\nP\n\n\6\nR\n\n\r\n\16\nS\3\n\3\n\5\n"+
+		"X\n\n\3\13\3\13\3\f\3\f\3\r\3\r\3\16\3\16\3\16\2\2\17\2\4\6\b\n\f\16\20"+
+		"\22\24\26\30\32\2\2\2`\2\35\3\2\2\2\4!\3\2\2\2\6%\3\2\2\2\b+\3\2\2\2\n"+
+		"-\3\2\2\2\f\63\3\2\2\2\16\65\3\2\2\2\20\67\3\2\2\2\22W\3\2\2\2\24Y\3\2"+
+		"\2\2\26[\3\2\2\2\30]\3\2\2\2\32_\3\2\2\2\34\36\5\4\3\2\35\34\3\2\2\2\36"+
+		"\37\3\2\2\2\37\35\3\2\2\2\37 \3\2\2\2 \3\3\2\2\2!\"\5\6\4\2\"#\7\3\2\2"+
+		"#$\5\6\4\2$\5\3\2\2\2%&\5\b\5\2&\'\7\7\2\2\'(\5\n\6\2()\7\4\2\2)*\5\22"+
+		"\n\2*\7\3\2\2\2+,\7\n\2\2,\t\3\2\2\2-.\5\f\7\2./\7\b\2\2/\60\5\16\b\2"+
+		"\60\61\7\b\2\2\61\62\5\20\t\2\62\13\3\2\2\2\63\64\7\13\2\2\64\r\3\2\2"+
+		"\2\65\66\7\13\2\2\66\17\3\2\2\2\678\7\13\2\28\21\3\2\2\29:\7\5\2\2:X\7"+
+		"\6\2\2;@\7\5\2\2<A\5\24\13\2=A\5\26\f\2>A\5\30\r\2?A\5\32\16\2@<\3\2\2"+
+		"\2@=\3\2\2\2@>\3\2\2\2@?\3\2\2\2AB\3\2\2\2BC\7\6\2\2CX\3\2\2\2DI\7\5\2"+
+		"\2EJ\5\24\13\2FJ\5\26\f\2GJ\5\30\r\2HJ\5\32\16\2IE\3\2\2\2IF\3\2\2\2I"+
+		"G\3\2\2\2IH\3\2\2\2JQ\3\2\2\2KO\7\t\2\2LP\5\26\f\2MP\5\30\r\2NP\5\32\16"+
+		"\2OL\3\2\2\2OM\3\2\2\2ON\3\2\2\2PR\3\2\2\2QK\3\2\2\2RS\3\2\2\2SQ\3\2\2"+
+		"\2ST\3\2\2\2TU\3\2\2\2UV\7\6\2\2VX\3\2\2\2W9\3\2\2\2W;\3\2\2\2WD\3\2\2"+
+		"\2X\23\3\2\2\2YZ\7\f\2\2Z\25\3\2\2\2[\\\7\r\2\2\\\27\3\2\2\2]^\7\16\2"+
+		"\2^\31\3\2\2\2_`\7\17\2\2`\33\3\2\2\2\b\37@IOSW";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

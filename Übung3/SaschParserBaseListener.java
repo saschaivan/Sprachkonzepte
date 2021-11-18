@@ -154,6 +154,18 @@ public class SaschParserBaseListener implements SaschParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitUnique(SaschParser.UniqueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterChargesStacks(SaschParser.ChargesStacksContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitChargesStacks(SaschParser.ChargesStacksContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

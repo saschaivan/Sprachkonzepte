@@ -126,4 +126,14 @@ public interface SaschParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitUnique(SaschParser.UniqueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SaschParser#chargesStacks}.
+	 * @param ctx the parse tree
+	 */
+	void enterChargesStacks(SaschParser.ChargesStacksContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SaschParser#chargesStacks}.
+	 * @param ctx the parse tree
+	 */
+	void exitChargesStacks(SaschParser.ChargesStacksContext ctx);
 }

@@ -3,9 +3,9 @@ options {
 	tokenVocab = Sasch;
 }
 
-game: matchup+ ;
+game: matchup+;
 
-matchup: side VS side ;
+matchup: side VS side;
 
 side: champion COLON score DIVIDER items;
 
@@ -21,9 +21,11 @@ assists: NUMBER;
 
 items:
 	(BRACKETOPEN BRACKETCLOSE)
-	| (BRACKETOPEN (mythic | normal | unique) BRACKETCLOSE)
-	| BRACKETOPEN (mythic | normal | unique) (
-		COMMA (normal | unique)
+	| (
+		BRACKETOPEN (mythic | normal | unique | chargesStacks) BRACKETCLOSE
+	)
+	| BRACKETOPEN (mythic | normal | unique | chargesStacks) (
+		COMMA (normal | unique | chargesStacks)
 	)+ BRACKETCLOSE;
 
 mythic: Mythics;
@@ -31,3 +33,5 @@ mythic: Mythics;
 normal: Normal;
 
 unique: Unique;
+
+chargesStacks: ChargesStacks;
