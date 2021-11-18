@@ -9,6 +9,7 @@ public final class ExprToAst {
     }
 
     public static void main(String[] args) throws Exception {
+        System.out.println("hello");;
         SaschLexer lexer = new SaschLexer(CharStreams.fromStream(System.in));
         SaschParser parser = new SaschParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.matchup();
@@ -17,7 +18,7 @@ public final class ExprToAst {
             System.exit(1);
         }
 
-        //String ast = new ExprBuilder().build(tree);
-        //System.out.printf("Expr.toString() = \"%s\"%n", ast);
+        String ast = new ExprBuilder().build(tree).toString();
+        System.out.printf("Expr.toString() = \"%s\"%n", ast);
     }
 }
