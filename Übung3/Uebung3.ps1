@@ -1,6 +1,6 @@
 param (
-    [Parameter(Mandatory=$false)]$parser,
-    [Parameter(Mandatory=$false)]$file
+    [Parameter(Mandatory=$false)]$file,
+    [Parameter(Mandatory=$false)]$parser
 )
 
 function buildTokens {
@@ -28,12 +28,17 @@ function buildGui {
 }
 
 function buildAST {
-    javac .\Matchup.java
-    javac .\Game.java
-    javac .\Side.java
-    javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprBuilder.java
-    javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprToAst.java
-    java -cp ".;.\antlr-4.9.2-complete.jar" ExprToAst
+    try {
+        javac .\Matchup.java
+        javac .\Game.java
+        javac .\Side.java
+        javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprBuilder.java
+        javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprToAst.java
+        java -cp ".;.\antlr-4.9.2-complete.jar" ExprToAst
+    }
+    catch {
+        Write-Error "Something went wrong"
+    }
 }
 
 switch ($parser) {

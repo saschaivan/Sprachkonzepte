@@ -1,7 +1,20 @@
 lexer grammar Sasch;
 
-//Sasch: Champion ' : ' Score ' - ' '['Items']' ' vs. ' Champion ' : ' Score ' - ' '['Items']';
+// used for token, uncomment to use it
+/*
+Sasch: Champion COLON SCORE DIVIDER BRACKETOPEN ITEMS BRACKETCLOSE VS Champion COLON SCORE DIVIDER BRACKETOPEN ITEMS BRACKETCLOSE;
+SCORE: NUMBER SLASH NUMBER SLASH NUMBER;
+ITEMS:
+	(BRACKETOPEN BRACKETCLOSE)
+	| (
+		BRACKETOPEN (Mythics | Normal | Unique | ChargesStacks) BRACKETCLOSE
+	)
+	| BRACKETOPEN (Mythics | Normal | Unique | ChargesStacks) (
+		COMMA (Normal | Unique | ChargesStacks)
+	)+ BRACKETCLOSE;
+*/
 
+// used in parser grammar
 VS: ' vs. ';
 
 DIVIDER: ' - ';
@@ -15,6 +28,7 @@ COLON: ' : ';
 SLASH: '/';
 
 COMMA: ', ';
+
 
 Champion:
 	'Aatrox'
