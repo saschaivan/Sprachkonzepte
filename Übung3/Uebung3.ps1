@@ -29,11 +29,15 @@ function buildGui {
 
 function buildAST {
     try {
+        java -jar antlr-4.9.2-complete.jar .\Sasch.g4 
+        javac -classpath .\antlr-4.9.2-complete.jar .\Sasch.java
+        java -jar antlr-4.9.2-complete.jar .\SaschParser.g4
+        javac -classpath .\antlr-4.9.2-complete.jar .\SaschParser*.java
         javac .\Matchup.java
         javac .\Game.java
         javac .\Side.java
-        javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprBuilder.java
-        javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprToAst.java
+        javac -classpath .\antlr-4.9.2-complete.jar .\ExprBuilder.java
+        javac -classpath .\antlr-4.9.2-complete.jar .\ExprToAst.java
         java -cp ".;.\antlr-4.9.2-complete.jar" ExprToAst
     }
     catch {
