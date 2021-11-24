@@ -1,4 +1,4 @@
-lexer grammar Sasch;
+lexer grammar SaschLexer;
 
 // used for token, uncomment to use it
 /*

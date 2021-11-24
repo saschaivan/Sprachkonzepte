@@ -1,6 +1,6 @@
 parser grammar SaschParser;
 options {
-	tokenVocab = Sasch;
+	tokenVocab = SaschLexer;
 }
 
 game: matchup+;

@@ -2,7 +2,7 @@ import java.util.*;
 
 public final class Side {
     private final String champion;
-    private List<String> items = new LinkedList<String>();
+    private List<String> items = new ArrayList<String>();
     private int[] score = new int[3];
 
     public Side(String champion, List<String> items, int[] score) {

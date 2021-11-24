@@ -12,17 +12,17 @@ public final class ExprToAst {
     }
 
     public static void main(String[] args) throws Exception {
-        File initialFile = new File("SaschBeispiel.txt");
+        File initialFile = new File(args[0]);
         InputStream targetStream = new FileInputStream(initialFile);
         SaschLexer lexer = new SaschLexer(CharStreams.fromStream(targetStream));
         SaschParser parser = new SaschParser(new CommonTokenStream(lexer));
-        ParseTree tree = parser.matchup();
+        ParseTree tree = parser.game();
         if (parser.getNumberOfSyntaxErrors() > 0) {
             System.err.printf("%d error(s) detected%n", parser.getNumberOfSyntaxErrors());
             System.exit(1);
         }
 
         String ast = new ExprBuilder().build(tree).toString();
-        System.out.printf("Expr.toString() = \"%s\"%n", ast);
+        System.out.printf("\"%s\"%n", ast);
     }
 }

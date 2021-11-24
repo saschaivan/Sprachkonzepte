@@ -3,17 +3,17 @@
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public final class ExprBuilder extends SaschParserBaseListener {
     private Game game;
-    private Stack<Side> side;
-    private Stack<Matchup> matchup;
+    private Stack<Side> side = new Stack<Side>();
+    private Stack<Matchup> matchup = new Stack<Matchup>();
     private int[] score;
     String champion;
-    List<String> itemsList = new LinkedList<String>();
+    ArrayList<String> itemsList = new ArrayList<String>();
+    int counter;
 
     public Game build(ParseTree tree) {
         new ParseTreeWalker().walk(this, tree);
@@ -36,12 +36,14 @@ public final class ExprBuilder extends SaschParserBaseListener {
         Side left = side.pop();
         matchup.push(new Matchup(left, right));
     }
-
+    
     @Override
     public void exitSide(SaschParser.SideContext ctx) {
-        side.push(new Side(champion, itemsList, score));
+        ArrayList<String> itemlist = (ArrayList<String>) itemsList.clone();
+        side.push(new Side(champion, itemlist, score));
+        itemsList.clear();
     }
-
+    
     @Override
     public void exitScore(SaschParser.ScoreContext ctx) {
         String kills = ctx.kills().getText();
@@ -52,21 +54,17 @@ public final class ExprBuilder extends SaschParserBaseListener {
 
     @Override
     public void exitItems(SaschParser.ItemsContext ctx) {
+        counter = 0;
         ctx.children.forEach(item -> {
             switch (item.getText()) {
-            case "mythic":
-                this.itemsList.add(item.getText());
+            case "[":
                 break;
-            case "normal":
-                this.itemsList.add(item.getText());
+            case ", ":
                 break;
-            case "unique":
-                this.itemsList.add(item.getText());
-                break;
-            case "chargesStacks":
-                this.itemsList.add(item.getText());
+            case "]":
                 break;
             default:
+                itemsList.add(item.getText());      
                 break;
             }
         });

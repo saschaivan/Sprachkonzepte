@@ -5,8 +5,8 @@ param (
 
 function buildTokens {
     try {
-        java -jar antlr-4.9.2-complete.jar .\Sasch.g4
-        javac -classpath .\antlr-4.9.2-complete.jar .\Sasch.java
+        java -jar antlr-4.9.2-complete.jar .\SaschLexer.g4
+        javac -classpath .\antlr-4.9.2-complete.jar .\Sasch*.java
         java -cp "antlr-4.9.2-complete.jar.;" org.antlr.v4.gui.TestRig Sasch tokens -tokens $file
     }
     catch {
@@ -16,10 +16,9 @@ function buildTokens {
 
 function buildGui {
     try {
-        java -jar antlr-4.9.2-complete.jar .\Sasch.g4 
-        javac -classpath .\antlr-4.9.2-complete.jar .\Sasch.java
+        java -jar antlr-4.9.2-complete.jar .\SaschLexer.g4 
         java -jar antlr-4.9.2-complete.jar .\SaschParser.g4
-        javac -classpath .\antlr-4.9.2-complete.jar .\SaschParser*.java
+        javac -classpath .\antlr-4.9.2-complete.jar .\Sasch*.java
         java -cp ".;.\antlr-4.9.2-complete.jar" org.antlr.v4.gui.TestRig Sasch game -gui $file
     }
     catch {
@@ -29,16 +28,15 @@ function buildGui {
 
 function buildAST {
     try {
-        java -jar antlr-4.9.2-complete.jar .\Sasch.g4 
-        javac -classpath .\antlr-4.9.2-complete.jar .\Sasch.java
+        java -jar antlr-4.9.2-complete.jar .\SaschLexer.g4 
         java -jar antlr-4.9.2-complete.jar .\SaschParser.g4
-        javac -classpath .\antlr-4.9.2-complete.jar .\SaschParser*.java
+        javac -classpath .\antlr-4.9.2-complete.jar .\Sasch*.java
+        javac .\Side.java
         javac .\Matchup.java
         javac .\Game.java
-        javac .\Side.java
-        javac -classpath .\antlr-4.9.2-complete.jar .\ExprBuilder.java
-        javac -classpath .\antlr-4.9.2-complete.jar .\ExprToAst.java
-        java -cp ".;.\antlr-4.9.2-complete.jar" ExprToAst
+        javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprBuilder.java
+        javac -cp ".;.\antlr-4.9.2-complete.jar" .\ExprToAst.java
+        java -cp ".;.\antlr-4.9.2-complete.jar" ExprToAst $file
     }
     catch {
         Write-Error "Something went wrong"

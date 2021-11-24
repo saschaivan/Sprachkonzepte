@@ -8,6 +8,7 @@ public final class Matchup {
         this.right = right;
     }
 
+    @Override
     public String toString() {
         return this.left + " vs. " + this.right;
     }

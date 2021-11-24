@@ -13,6 +13,7 @@ public class Game {
         this.support = support;
     }
 
+    @Override
     public String toString() {
         return this.top + "\n" + this.jungle + "\n" + this.mid + "\n" + this.bot + "\n" + this.support;
     }
