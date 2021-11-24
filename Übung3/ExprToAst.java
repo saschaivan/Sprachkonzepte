@@ -23,6 +23,6 @@ public final class ExprToAst {
         }
 
         String ast = new ExprBuilder().build(tree).toString();
-        System.out.printf("\"%s\"%n", ast);
+        System.out.println(ast);
     }
 }
