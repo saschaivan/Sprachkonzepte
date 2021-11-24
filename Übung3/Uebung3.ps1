@@ -44,10 +44,10 @@ function buildAST {
 }
 
 function clean {
-    rm *.class
-    rm *.interp
-    rm *.token*
-    rm Sasch*.java
+    Remove-Item *.class
+    Remove-Item *.interp
+    Remove-Item *.token*
+    Remove-Item Sasch*.java
 }
 
 switch ($parser) {
