@@ -39,8 +39,8 @@ public final class ExprBuilder extends SaschParserBaseListener {
     
     @Override
     public void exitSide(SaschParser.SideContext ctx) {
-        ArrayList<String> itemlist = (ArrayList<String>) itemsList.clone();
-        side.push(new Side(champion, itemlist, score));
+        ArrayList<String> copied =  new ArrayList<String>(itemsList);
+        side.push(new Side(champion, copied, score));
         itemsList.clear();
     }
     
