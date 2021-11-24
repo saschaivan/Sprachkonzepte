@@ -4,4 +4,5 @@
 *.zip
 .antlr/
 convert.ps1
+Sasch*.java
 
