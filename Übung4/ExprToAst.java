@@ -22,7 +22,13 @@ public final class ExprToAst {
             System.exit(1);
         }
 
-        String ast = new ExprBuilder().build(tree).toString();
-        System.out.printf("\"%s\"%n", ast);
+        Game ast = new ExprBuilder().build(tree);
+        boolean check = ast.checkStaticSemantic();
+        if (!check) {
+            System.out.printf("Same Champion cannot appear twice\n");
+        } else {
+            System.out.printf("\"%s\"%n", ast.toString());
+            System.out.printf("\"%s\"%n", ast.checkDynamicSemantic());
+        }
     }
 }
