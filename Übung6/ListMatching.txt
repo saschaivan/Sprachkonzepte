@@ -1,0 +1,34 @@
+| != oder, sondern ist die "Pipe" die einen Split für die Liste vorgibt.
+
+[X,Y,Z] = [john,likes,fish].
+
+X = john,
+Y = likes,
+Z = fish.
+
+[X, Y|Z] = [john,likes,fish].
+
+X = john,
+Y = likes,
+Z = [fish].
+
+[cat] = [X|Y].
+
+X = cat,
+Y = [].
+
+[[the,Y]|Z] = [[X,hare],[is,here]].
+
+Y = hare,
+Z = [is,here],
+X = the.
+
+[white,horse] = [horse,X].
+
+false.
+
+[white|Q] = [P,horse].
+
+Q = [horse],
+P = white.
+
