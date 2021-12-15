@@ -7,4 +7,11 @@ zug(karlsruhe, 12.08, mainz, 13.47).
 zug(stuttgart, 11.51, mannheim, 12.28).
 zug(mannheim, 12.39, mainz, 13.18).
 
-verbindung(konstanz, 8.00, mainz, Reiseplan)
+verbindung(Start, StartZ, Ziel, Reiseplan) :-
+    zug(Start, X, Y, Z),
+    StartZ =< X,
+    zug(Start, StartZ, Y1, Z1),
+	append([Start, StartZ, Ziel, ZielZ], Reiseplan).
+	
+    
+
