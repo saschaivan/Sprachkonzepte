@@ -7,11 +7,15 @@ zug(karlsruhe, 12.08, mainz, 13.47).
 zug(stuttgart, 11.51, mannheim, 12.28).
 zug(mannheim, 12.39, mainz, 13.18).
 
-verbindung(Start, StartZ, Ziel, Reiseplan) :-
-    zug(Start, X, Y, Z),
-    StartZ =< X,
-    zug(Start, StartZ, Y1, Z1),
-	append([Start, StartZ, Ziel, ZielZ], Reiseplan).
+verbindung(Start, Zeit, End_Ziel, Reiseplan) :-
+    zug(Start, Start_Zeit, End_Ziel, Ziel_Zeit),
+    Start_Zeit >= Zeit,
+    append([Start, Start_Zeit, End_Ziel, Ziel_Zeit], [], Reiseplan).
+verbindung(Start, Zeit, End_Ziel, Reiseplan) :-
+    zug(Start, Start_Zeit, Umstieg, Umstieg_Zeit),
+    Start_Zeit >= Zeit,
+    verbindung(Umstieg, Umstieg_Zeit, End_Ziel, New_Reiseplan),
+    append([Start, Start_Zeit, Umstieg, Umstieg_Zeit], New_Reiseplan, Reiseplan).
 	
     
 
