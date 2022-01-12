@@ -1,0 +1,36 @@
+delimiters "$", "$"
+
+
+aufgabe7(methods) ::= <<
+	<!DOCTYPE html>
+	<html lang="de">
+		<head>
+			<style type="text/css">
+			th,
+			td {
+				border-bottom: thin solid;
+				padding: 4px;
+				text-align: left;
+			}
+
+			td {
+				font-family: monospace;
+			}
+			</style>
+		</head>
+		<body>
+			<h1>Sprachkonzepte, Aufgabe 7</h1>
+			<h2>Name der Klasse</h2>
+			<table>
+				<tr>
+					<th>Methods</th>
+				</tr>
+				<tr>
+					<td>
+					$methods: { method | $method$ }$ 
+					</td>
+				</tr>
+			</table>
+		</body>
+	</html>
+>>
