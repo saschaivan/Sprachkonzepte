@@ -1,7 +1,7 @@
 delimiters "$", "$"
 
 
-aufgabe7(methods) ::= <<
+aufgabe7(classes) ::= <<
 	<!DOCTYPE html>
 	<html lang="de">
 		<head>
@@ -20,17 +20,40 @@ aufgabe7(methods) ::= <<
 		</head>
 		<body>
 			<h1>Sprachkonzepte, Aufgabe 7</h1>
-			<h2>Name der Klasse</h2>
-			<table>
-				<tr>
-					<th>Methods</th>
-				</tr>
-				<tr>
-					<td>
-					$methods: { method | $method$ }$ 
-					</td>
-				</tr>
-			</table>
+			$classes:classes()$
 		</body>
 	</html>
+>>
+
+classes(class) ::= <<
+	<h2>Klasse $class.name$</h2>
+	<table>
+		<tr>
+			<th>Methods</th>
+		</tr>
+		<tr>
+			$class.methods:methods(); separator="\n"$
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<th>Interfaces</th>
+			<th>Methods</th>
+		</tr>
+		<tr>
+			$class.interfaces:interfaces(); separator="\n"$
+		</tr>
+	</table>
+>>
+
+methods(methods) ::= <<
+	<td>
+		$methods: { method | $method; separator="<br>"$ }$
+	</td> 
+>>
+
+interfaces(interfaces) ::= <<
+	<td valign="top">
+		$interfaces$
+	</td>
 >>
