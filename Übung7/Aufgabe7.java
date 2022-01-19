@@ -1,9 +1,9 @@
-import org.stringtemplate.v4.STGroupFile;
-import org.stringtemplate.v4.ST;
+import java.io.FileWriter;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.io.File;
-import java.io.FileWriter;
+
+import org.stringtemplate.v4.ST;
+import org.stringtemplate.v4.STGroupFile;
 
 public final class Aufgabe7 {
 	private Aufgabe7() {

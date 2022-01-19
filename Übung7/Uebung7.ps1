@@ -8,7 +8,7 @@ function build {
 }
 
 function clean {
-    Remove-Item classes/*.class
+    Remove-Item *.class
 }
 
 switch ($param) {
