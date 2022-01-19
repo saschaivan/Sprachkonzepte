@@ -1,0 +1,58 @@
+{
+    "1. Weihnachtstag": {
+        "datum": "2022-12-25",
+        "hinweis": ""
+    },
+    "2. Weihnachtstag": {
+        "datum": "2022-12-26",
+        "hinweis": ""
+    },
+    "Allerheiligen": {
+        "datum": "2022-11-01",
+        "hinweis": ""
+    },
+    "Christi Himmelfahrt": {
+        "datum": "2022-05-26",
+        "hinweis": ""
+    },
+    "Fronleichnam": {
+        "datum": "2022-06-16",
+        "hinweis": ""
+    },
+    "Gr\u00fcndonnerstag": {
+        "datum": "2022-04-14",
+        "hinweis": "Gem\u00e4\u00df \u00a7 4 Abs. 3 des Feiertagsgesetzes von Baden-W\u00fcrttemberg[10] haben Sch\u00fcler am Gr\u00fcndonnerstag und am Reformationstag schulfrei. In der Regel legt das Kultusministerium die Ferientermine so fest, dass diese beiden Tage in die Osterferien bzw. in die Herbstferien fallen."
+    },
+    "Heilige Drei K\u00f6nige": {
+        "datum": "2022-01-06",
+        "hinweis": ""
+    },
+    "Karfreitag": {
+        "datum": "2022-04-15",
+        "hinweis": ""
+    },
+    "Neujahrstag": {
+        "datum": "2022-01-01",
+        "hinweis": ""
+    },
+    "Ostermontag": {
+        "datum": "2022-04-18",
+        "hinweis": ""
+    },
+    "Pfingstmontag": {
+        "datum": "2022-06-06",
+        "hinweis": ""
+    },
+    "Reformationstag": {
+        "datum": "2022-10-31",
+        "hinweis": "Gem\u00e4\u00df \u00a7 4 Abs. 3 des Feiertagsgesetzes von Baden-W\u00fcrttemberg[10] haben Sch\u00fcler am Gr\u00fcndonnerstag und am Reformationstag schulfrei. In der Regel legt das Kultusministerium die Ferientermine so fest, dass diese beiden Tage in die Osterferien bzw. in die Herbstferien fallen."
+    },
+    "Tag der Arbeit": {
+        "datum": "2022-05-01",
+        "hinweis": ""
+    },
+    "Tag der Deutschen Einheit": {
+        "datum": "2022-10-03",
+        "hinweis": ""
+    }
+}
