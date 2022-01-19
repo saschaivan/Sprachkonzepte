@@ -3,9 +3,8 @@ param (
 )
 
 function build {
-    javac -classpath .\antlr-4.9.2-complete.jar classes/Aufgabe7.java
-    javac classes/Aufgabe5_a.java
-    java -cp "antlr-4.9.2-complete.jar.;" classes/Aufgabe7 java.lang.String java.util.Iterator java.time.Month
+    javac -classpath .\antlr-4.9.2-complete.jar Aufgabe7.java
+    java -cp "antlr-4.9.2-complete.jar.;" Aufgabe7 java.lang.String java.util.Iterator java.time.Month
 }
 
 function clean {

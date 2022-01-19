@@ -1,5 +1,3 @@
-package classes;
-
 import org.stringtemplate.v4.STGroupFile;
 import org.stringtemplate.v4.ST;
 import java.lang.reflect.Method;
