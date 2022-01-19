@@ -26,34 +26,42 @@ aufgabe7(classes) ::= <<
 >>
 
 classes(class) ::= <<
-	<h2>Klasse $class.name$</h2>
+	$if(class.isInterface)$
+	<h2>interface $class.name$:</h2>
 	<table>
 		<tr>
 			<th>Methods</th>
 		</tr>
 		<tr>
-			$class.methods:methods(); separator="\n"$
+			<td>
+				$class.classMethods:methods()$
+			</td>
 		</tr>
 	</table>
+	$else$
+	<h2>class $class.name$</h2>
 	<table>
 		<tr>
 			<th>Interfaces</th>
 			<th>Methods</th>
 		</tr>
-		<tr>
-			$class.interfaces:interfaces(); separator="\n"$
-		</tr>
+		$class.interfaces:interfaces()$
 	</table>
+	$endif$
+	
 >>
 
 methods(methods) ::= <<
-	<td>
-		$methods: { method | $method; separator="<br>"$ }$
-	</td> 
+	$methods: { method | $method$ $"<br />"$}$
 >>
 
 interfaces(interfaces) ::= <<
-	<td valign="top">
-		$interfaces$
-	</td>
+	<tr>
+		<td valign="top">
+			$interfaces.interfaceName$
+		</td>
+		<td valign="top">
+			$interfaces.interfaceMethods: { method | $method$ $"<br />"$}$
+		</td>
+	</tr>
 >>

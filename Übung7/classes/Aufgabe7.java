@@ -1,68 +1,59 @@
 package classes;
+
 import org.stringtemplate.v4.STGroupFile;
 import org.stringtemplate.v4.ST;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.io.File;
-import java.io.FileWriter;   
+import java.io.FileWriter;
 
 public final class Aufgabe7 {
-	private Aufgabe7() { }
+	private Aufgabe7() {
+	}
 
-	public static void main(String[] args) throws Exception {
-		/* File classFolder = new File("classes");
-		File[] listOfFiles = classFolder.listFiles();
+	public static void main(String[] args) throws Exception {	
 		ArrayList<Classes> classArray = new ArrayList<Classes>();
-		for (int i = 0; i < listOfFiles.length; i++) {
-			String[] fileName = listOfFiles[i].getName().split("\\."); 
-			if(fileName[1].equals("java"))
-				continue;
-			Classes classes;
-			String className = fileName[0];
-			classes = new Classes(Class.forName("classes." + className).getName(), Class.forName("classes." + className).getMethods(), Class.forName("classes." + className).getInterfaces());
+		for (String arg : args) {
+			Class<?> classforName = Class.forName(arg);
+			Classes classes = new Classes(classforName.getName(), classforName);
 			classArray.add(classes);
-		} */
-        ST templ = new STGroupFile("aufgabe7.stg").getInstanceOf("aufgabe7");
+		}
 		
-		ArrayList<Classes> classArray = new ArrayList<Classes>();
-		Class<?> classforName = Class.forName(args[0]);
-		Classes classes;
-		IntefaceMethods interfaceMethods;
-		if(classforName.isInterface())
-
-
-
-        templ.add("classes", classArray);
-        String result = templ.render();
+		ST templ = new STGroupFile("aufgabe7.stg").getInstanceOf("aufgabe7");
+		templ.add("classes", classArray);
+		String result = templ.render();
 
 		FileWriter myWriter = new FileWriter("output.html");
 		myWriter.write(result);
-		myWriter.close();	
-    }
-}
-
-
-abstract class OberKlasse {
-	public Class<?>[] interfaces;
-	public Method[] methods;
-}
-
-final class Classes extends OberKlasse {
-	public final String name;
-	public final IntefaceMethods interfaces;
-
-	public Classes(String name, IntefaceMethods interfaces) {
-		this.name = name;
-		this.interfaces = interfaces;
+		myWriter.close();
 	}
 }
 
-final class IntefaceMethods extends OberKlasse {
-	public final String name;
-	public final Method[] methods;
+final class Classes {
+	public String name;
+	public ArrayList<InterfaceMethods> interfaces = new ArrayList<>();
+	public Method[] classMethods;
+	public boolean isInterface;
 
-	public IntefaceMethods(String name, Method[] methods) {
-		this.methods = methods;
-		this.name = name;
+	public Classes(String name, Class<?> classObject) {
+		if (classObject.isInterface()) {
+			this.name = name;
+			isInterface = true;
+			this.classMethods = classObject.getMethods();
+		} else {
+			this.name = name;
+			for(Class<?> c : classObject.getInterfaces())
+				interfaces.add(new InterfaceMethods(c.getName(), c.getMethods()));
+		}
+	}
+}
+
+final class InterfaceMethods {
+	public String interfaceName;
+	public Method[] interfaceMethods;
+
+	public InterfaceMethods(String interfaceName, Method[] interfaceMethods) {
+		this.interfaceMethods = interfaceMethods;
+		this.interfaceName = interfaceName;
 	}
 }
