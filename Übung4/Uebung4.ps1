@@ -1,5 +1,5 @@
 param (
-    [Parameter(Mandatory=$false)]$parser,
+    [Parameter(Mandatory=$true)]$parser,
     [Parameter(Mandatory=$false)]$file
 )
 
@@ -51,6 +51,9 @@ function clean {
 }
 
 switch ($parser) {
+	tokens {
+		buildTokens
+	}
     gui { 
         buildGui
     }
@@ -59,8 +62,5 @@ switch ($parser) {
     }
     clean {
         clean
-    }
-    Default {
-        buildTokens
     }
 }
