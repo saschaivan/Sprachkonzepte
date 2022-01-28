@@ -39,7 +39,7 @@ classes(class) ::= <<
 		</tr>
 	</table>
 	$else$
-	<h2>class $class.name$</h2>
+	<h2>class $class.name$:</h2>
 	<table>
 		<tr>
 			<th>Interfaces</th>
