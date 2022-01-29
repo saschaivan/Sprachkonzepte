@@ -3,9 +3,16 @@ param (
 	[Parameter(Mandatory = $false)]$file
 )
 
-function build {
-	java -jar antlr-4.9.2-complete.jar .\Time.g4
-	javac -classpath .\antlr-4.9.2-complete.jar .\Time.java
+function buildTimeSimple {
+	java -jar antlr-4.9.2-complete.jar .\TimeSimpleLexer.g4
+	javac -classpath .\antlr-4.9.2-complete.jar .\TimeSimpleLexer.java
+	java -cp "antlr-4.9.2-complete.jar.;" org.antlr.v4.gui.TestRig TimeSimple tokens -tokens $file
+	
+}
+
+function buildTime {
+	java -jar antlr-4.9.2-complete.jar .\TimeLexer.g4
+	javac -classpath .\antlr-4.9.2-complete.jar .\TimeLexer.java
 	java -cp "antlr-4.9.2-complete.jar.;" org.antlr.v4.gui.TestRig Time tokens -tokens $file
 	
 }
@@ -17,8 +24,11 @@ function clean {
 }
 
 switch ($parser) {
+	buildSimple {
+		buildTimeSimple
+	}
 	build {
-		build
+		buildTime
 	}
 	clean {
 		clean

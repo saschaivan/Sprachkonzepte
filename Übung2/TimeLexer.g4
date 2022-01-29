@@ -1,5 +1,5 @@
-// Time.g4
-lexer grammar Time;
+// TimeLexer.g4
+lexer grammar TimeLexer;
 
 Hour: [1-9]|'1'[0-2] ;
 
