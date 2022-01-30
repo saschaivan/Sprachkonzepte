@@ -44,7 +44,8 @@ Wir haben 2 Lösungen erstellt. In TimeSimple.g4 wird der eingelesene String als
 
 Ausführung:
 - [Ausführungsskript](../Übung2/Uebung2.ps1)
-    - Befehl: ../Übung2/Uebung2.ps1 timeBeispiel.txt
+    - Befehl: .\Uebung2.ps1 buildSimple timeBeispiel.txt
+    - Befehl: .\Uebung2.ps1 build timeBeispiel.txt
 
 </br>
 
@@ -77,7 +78,7 @@ Fragestellung:
 
 Lösung: <br>
 - [Ausführungsskript](../Übung5/Uebung5.ps1)
-- Befehl: ../Übung5/Uebung5.ps1 Test.txt
+- Befehl: .\Uebung5.ps1 Test.txt
 - Output:
     ```
     Aufgabe 5a): result = 152 (1335 microsec)
@@ -96,7 +97,7 @@ Lösung:
 - Generierung des Class Arrays und Übergabe an Stringtemplate mit Hilfe der Template Engine: [Aufgabe7.java](../Übung7/Aufgabe7.java)
 - Stringtemplate: [aufgabe7.stg](../Übung7/aufgabe7.stg)
 - [Ausführungsskript](../Übung7/Uebung7.ps1)
-- Befehl: ../Übung7/Uebung7.ps1
+- Befehl: .\Uebung7.ps1
 - Output: [output.html](../Übung7/output.html)
 
 <br>
