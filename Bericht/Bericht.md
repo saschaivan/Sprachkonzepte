@@ -38,10 +38,9 @@ Fragestellung:
 
 Lösung:
 - [TimeSimple](../Übung2/TimeSimple.g4)
+- [Time](../Übung2/Time.g4) <br>
 
-Wir hatten noch eine andere Grammatik die nicht ganz den Anforderungen entsprochen hat
-
-- [Time](../Übung2/Time.g4)
+Wir haben 2 Lösungen erstellt. In TimeSimple.g4 wird der eingelesene String als 1 Token mit Hilfe von Fragments erkannt. In Time.g4 wird der String in verschiedene Tokens unterteilt.
 
 Ausführung:
 - [Ausführungsskript](../Übung2/Uebung2.ps1)
