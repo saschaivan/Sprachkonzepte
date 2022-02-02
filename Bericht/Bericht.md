@@ -245,7 +245,7 @@ fak(N, F):-
 - Folie 28
 
 Die erste Anfrage steckt alle Elemente erstmal alle Elemente der Liste in Y, diese werden dann pro Iteration eins nach dem anderen nach X geschoben.
-Die zweite Anfrage macht komische Sachen.
+Die zweite Anfrage endet in einem Stack Overflow, da das Programm in eine Endlosschleife gerät.
 
 ### Teil b)
 
