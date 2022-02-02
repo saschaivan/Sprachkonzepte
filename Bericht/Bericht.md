@@ -10,8 +10,6 @@ Lösung:
 
 - [Übung 1](../Übung1/Übung_1.txt)
 
-<!--<div style="page-break-after: always; visibility: hidden"></div>-->
-
 <br>
 
 ## Aufgabe 2
@@ -37,11 +35,14 @@ Lösung:
 
 - [Uebung2.java](../Übung2/Uebung2.java)
 
+
 ### Teil b)
 
 Fragestellung:
 
 - Erkennen Sie mit ANTLR 4 Lexer-Regeln Zeitangaben im digitalen 12-Sunden-Format. Beachten Sie auch die alternativen Schreibweisen 12 midnight und 12 noon
+
+<br>
 
 Lösung:
 
@@ -88,6 +89,8 @@ Beispiel:
 
 Und dann noch das Übungs Skript angepasst um entweder nur die Tokens in der Konsole ausgeben zu lassen, oder den Parse Tree mit dem TestRig anzeigen zu lassen.
 
+<div style="page-break-after: always; visibility: hidden"></div>
+
 Ausführung:
 
 - [Ausführungsskript](../Übung3/Uebung3.ps1)
@@ -123,6 +126,8 @@ Um das Ganze dann auszuführen haben wir die main Methode und unser Uebung3 Skri
 - [Ausführungsskript](../Übung3/Uebung3.ps1)
   - Befehl: ./Uebung3.ps1 ast SaschBeispiel.txt
 
+<br>
+
 ## Aufgabe 4
 
 ### Teil a)
@@ -150,6 +155,8 @@ Bei der dynamischen Semantik nutzen wir den Score um zu berechnen welche Seite m
 
 - [checkDynamicSemantic()](../Übung4/Game.java)
 
+<br>
+
 ## Aufgabe 5
 
 ### Teil a)
@@ -157,9 +164,12 @@ Bei der dynamischen Semantik nutzen wir den Score um zu berechnen welche Seite m
 Fragestellung:
 
 - Vervollständigen Sie das folgende Java-Programm, indem Sie die aufgerufenen Klassenmethoden ergänzen.
-  Was an dem Java-Programm ist eindeutig prozeduraler Stil?
 
 Lösung:
+
+- Was an dem Java-Programm ist eindeutig prozeduraler Stil?
+
+Die einzelnen Prozeduren liefern Ergebnisse als Rückgabewerte und sie sind in überschaubare Teile zerlegt.
 
 - [Aufgabe5_a.java](../Übung5/Aufgabe5_a.java)
 
@@ -179,7 +189,9 @@ Fragestellung:
 
 - Vergleichen Sie die Laufzeiten der Programme aus 5a und 5b.
 
-Lösung: <br>
+<br>
+
+Lösung: 
 
 - [Ausführungsskript](../Übung5/Uebung5.ps1)
 - Befehl: .\Uebung5.ps1 Test.txt
@@ -190,7 +202,6 @@ Lösung: <br>
   ```
 - Streams sind im Gegensatz zu Loops mit unserem Workload langsamer.
 
-<br>
 <br>
 
 ## Aufgabe 6
@@ -247,6 +258,7 @@ fak(N, F):-
 Die erste Anfrage steckt alle Elemente erstmal alle Elemente der Liste in Y, diese werden dann pro Iteration eins nach dem anderen nach X geschoben.
 Die zweite Anfrage endet in einem Stack Overflow, da das Programm in eine Endlosschleife gerät.
 
+
 ### Teil b)
 
 - Programmieren Sie ein Prädikat sum, das die Summe einer Liste von Zahlen berechnet.
@@ -279,6 +291,8 @@ verbindung(Start, Zeit, End_Ziel, Reiseplan) :-
     verbindung(Umstieg, Umstieg_Zeit, End_Ziel, New_Reiseplan),
     append([Start, Start_Zeit, Umstieg, Umstieg_Zeit], New_Reiseplan, Reiseplan).
 ```
+
+<div style="page-break-after: always; visibility: hidden"></div>
 
 ## Aufgabe 7
 
