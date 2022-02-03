@@ -1,7 +1,6 @@
 *.class
 *.interp
 *.tokens
-*.zip
 .antlr/
 convert.ps1
 Sasch*.java
