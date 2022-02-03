@@ -1,5 +1,12 @@
 # Bericht Sprachkonzepte
 
+Autoren:
+  - Sascha Ivan 
+  - Niklas Pelz 
+  - Florian Halter 
+
+<br>
+
 ## Aufgabe 1
 
 Fragestellung:
@@ -42,8 +49,6 @@ Fragestellung:
 
 - Erkennen Sie mit ANTLR 4 Lexer-Regeln Zeitangaben im digitalen 12-Sunden-Format. Beachten Sie auch die alternativen Schreibweisen 12 midnight und 12 noon
 
-<br>
-
 Lösung:
 
 - [TimeSimple](../Übung2/TimeSimple.g4)
@@ -57,7 +62,7 @@ Ausführung:
   - Befehl: .\Uebung2.ps1 buildSimple timeBeispiel.txt
   - Befehl: .\Uebung2.ps1 build timeBeispiel.txt
 
-</br>
+<br>
 
 ## Aufgabe 3
 
@@ -88,8 +93,6 @@ Beispiel:
 - [SaschBeispiel.txt](../Übung3/SaschBeispiel.txt)
 
 Und dann noch das Übungs Skript angepasst um entweder nur die Tokens in der Konsole ausgeben zu lassen, oder den Parse Tree mit dem TestRig anzeigen zu lassen.
-
-<div style="page-break-after: always; visibility: hidden"></div>
 
 Ausführung:
 
@@ -188,8 +191,6 @@ Lösung:
 Fragestellung:
 
 - Vergleichen Sie die Laufzeiten der Programme aus 5a und 5b.
-
-<br>
 
 Lösung: 
 
@@ -292,7 +293,7 @@ verbindung(Start, Zeit, End_Ziel, Reiseplan) :-
     append([Start, Start_Zeit, Umstieg, Umstieg_Zeit], New_Reiseplan, Reiseplan).
 ```
 
-<div style="page-break-after: always; visibility: hidden"></div>
+<br>
 
 ## Aufgabe 7
 
