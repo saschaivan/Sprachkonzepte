@@ -40,7 +40,7 @@ FORMAT("%1$-02.3d")TEXT("yyy")
 
 Lösung:
 
-- [Uebung2.java]([../Übung2/Uebung2.java](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung2/Uebung2.java))
+- [Uebung2.java](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung2/Uebung2.java)
 
 
 ### Teil b)
