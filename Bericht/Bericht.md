@@ -322,3 +322,10 @@ Lösung:
 
 - Unser Python Skript: [Übung8.py](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung8/%C3%9Cbung8.py)
 - Wir haben die Feiertage Api verwendet und 2 Parameter übergeben. Einmal `"jahr": 2022` und `"nur_land": "BW"`. Die Rückgabe Daten haben wir dann in eine json Datei geschrieben und formatiert mit Hilfe der json Bibliothek von Python. Anschließend haben wir die Keys der json Datei mit Hilfe von einem Regex Pattern durchsucht.
+- Analyse von Eigenschaften einer Skriptsprache:
+  - Einfache Syntax: Keine main, keine Klassen
+  - Deklarationsfreie Syntax (dynamische Typisierung)
+    - implizit deklarierte Variablen 
+      - Zeile 5: parameters (dict[str, Any])
+      - Zeile 12: feiertage(list))
+  - Zeile 22-26: Pattern Matching mit regulären Ausdrücken
