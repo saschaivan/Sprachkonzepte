@@ -1,9 +1,10 @@
 # Bericht Sprachkonzepte
 
 Autoren:
-  - Sascha Ivan 
-  - Niklas Pelz 
-  - Florian Halter 
+
+- Sascha Ivan
+- Niklas Pelz
+- Florian Halter
 
 <br>
 
@@ -41,7 +42,6 @@ FORMAT("%1$-02.3d")TEXT("yyy")
 Lösung:
 
 - [Uebung2.java](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung2/Uebung2.java)
-
 
 ### Teil b)
 
@@ -129,7 +129,11 @@ Um das Ganze dann auszuführen haben wir die main Methode und unser Uebung3 Skri
 - [Ausführungsskript](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung3/Uebung3.ps1)
   - Befehl: ./Uebung3.ps1 ast SaschBeispiel.txt
 
-<br>
+Hier noch ein Beispiel zur Visualisierung der Struktur (Der gesamte Parse Tree ist etwas breit geworden):
+
+![ParseTree](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung3/antlr4_parse_tree.png?raw=true)
+
+![MatchupBeispiel](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung3/Matchup.PNG?raw=true)
 
 ## Aufgabe 4
 
@@ -192,7 +196,7 @@ Fragestellung:
 
 - Vergleichen Sie die Laufzeiten der Programme aus 5a und 5b.
 
-Lösung: 
+Lösung:
 
 - [Ausführungsskript](https://github.com/saschaivan/Sprachkonzepte/blob/main/%C3%9Cbung5/Uebung5.ps1)
 - Befehl: .\Uebung5.ps1 Test.txt
@@ -259,7 +263,6 @@ fak(N, F):-
 Die erste Anfrage steckt alle Elemente erstmal alle Elemente der Liste in Y, diese werden dann pro Iteration eins nach dem anderen nach X geschoben.
 Die zweite Anfrage endet in einem Stack Overflow, da das Programm in eine Endlosschleife gerät.
 
-
 ### Teil b)
 
 - Programmieren Sie ein Prädikat sum, das die Summe einer Liste von Zahlen berechnet.
@@ -325,7 +328,7 @@ Lösung:
 - Analyse von Eigenschaften einer Skriptsprache:
   - Einfache Syntax: Keine main, keine Klassen
   - Deklarationsfreie Syntax (dynamische Typisierung)
-    - implizit deklarierte Variablen 
+    - implizit deklarierte Variablen
       - Zeile 5: parameters (dict[str, Any])
       - Zeile 12: feiertage(list))
   - Zeile 22-26: Pattern Matching mit regulären Ausdrücken
